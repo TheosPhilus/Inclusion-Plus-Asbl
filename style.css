@@ -1,0 +1,174 @@
+/* Reset de base pour éviter les styles par défaut des navigateurs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Simplifie la gestion des marges et des paddings */
+}
+
+/* Style global du body : police, couleur, arrière-plan */
+body {
+    font-family: 'Lato', sans-serif; /* Police principale pour le texte */
+    line-height: 1.6; /* Espacement vertical pour faciliter la lecture */
+    color: #333; /* Couleur principale du texte */
+    background: #f9f9f9; /* Fond clair pour un rendu propre et moderne */
+    padding: 0 10px; /* Marges internes pour les petits écrans */
+}
+
+/* Titres : Style spécifique pour les h1, h2, et h3 */
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif; /* Police élégante et moderne */
+    color: #444; /* Couleur légèrement foncée pour les titres */
+    margin-bottom: 15px; /* Espacement sous les titres */
+}
+
+/* Style pour le titre principal de la page */
+h1 {
+    font-size: 2.8rem; /* Taille du texte augmentée pour un effet imposant */
+    text-align: center; /* Centrage du texte */
+    color: #2c3e50; /* Couleur sombre pour le contraste */
+}
+
+/* Style pour les titres secondaires */
+h3 {
+    font-size: 1.6rem; /* Taille moyenne */
+    border-bottom: 2px solid #27ae60; /* Ligne décorative en dessous */
+    display: inline-block; /* Adapte la largeur au contenu */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    padding-bottom: 5px; /* Légère marge interne */
+}
+
+/* Style de l'en-tête (header) */
+header {
+    text-align: center; /* Centrage du contenu */
+    padding: 20px 0; /* Espacement vertical */
+    background: #27ae5fac; /* Couleur de fond : vert */
+    color: #fff; /* Texte blanc pour le contraste */
+    border-bottom: 5px solid #1e8449; /* Ligne inférieure sombre pour l'effet 3D */
+}
+
+/* Logo dans l'en-tête */
+header .imglogo img {
+    max-width: 120px; /* Taille augmentée pour un meilleur impact visuel */
+   
+}
+
+/* Style pour la bannière sous le titre principal */
+header .banniere {
+    font-family: 'Raleway', sans-serif; /* Police élégante et lisible */
+    font-size: 1.4rem; /* Taille légèrement augmentée pour attirer l'attention */
+    margin-top: 10px; /* Espacement entre le titre et la bannière */
+    color: white; /* Texte clair pour contraster avec le fond */
+    text-align: justify;
+    margin-left: 400px;
+    font-weight: bold;
+}
+
+
+
+/* Conteneur principal des sections */
+section {
+    max-width: 1200px; /* Largeur maximale pour un rendu sur grands écrans */
+    margin: 30px auto; /* Centrage horizontal avec marges verticales */
+    display: flex; /* Utilisation de flexbox pour les colonnes */
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
+    gap: 20px; /* Espacement entre les colonnes */
+    justify-content: space-between; /* Répartition uniforme des colonnes */
+}
+
+/* Style général des colonnes */
+.col {
+    background: #fff; /* Fond blanc pour contraster avec le fond global */
+    padding: 20px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet flottant */
+    flex: 1 1 calc(25% - 20px); /* Largeur adaptative des colonnes */
+    min-width: 250px; /* Largeur minimale pour éviter l'écrasement */
+}
+
+/* Séparation visuelle entre colonnes */
+.separator {
+    border-right: 1px solid #ddd; /* Ligne grise entre colonnes */
+}
+
+/* Suppression de la ligne de séparation pour la dernière colonne */
+.separator.last {
+    border-right: none;
+}
+
+/* Style des liens email */
+.email-link {
+    color: #27ae60; /* Couleur verte pour les liens email */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold; /* Gras pour mettre en valeur */
+}
+
+.email-link:hover {
+    text-decoration: underline; /* Réaction au survol */
+}
+
+/* Icônes de réseaux sociaux */
+.social-icons {
+    display: flex; /* Aligne les icônes horizontalement */
+    gap: 10px; /* Espacement entre les icônes */
+    margin-top: 10px; /* Marges supérieures */
+}
+
+.social-icons a img {
+    width: 50px; /* Taille augmentée des icônes */
+    height: 50px; /* Taille uniforme pour un rendu propre */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animation fluide au survol */
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1); /* Agrandissement des icônes */
+    opacity: 0.8; /* Légère transparence au survol */
+}
+
+/* Pied de page (footer) */
+footer {
+    text-align: center; /* Centrage du contenu */
+    padding: 10px 0; /* Espacement vertical */
+    background: #2c3e50; /* Couleur sombre */
+    color: #fff; /* Texte blanc */
+    margin-top: 30px; /* Espacement par rapport au contenu précédent */
+    font-size: 0.9rem; /* Taille du texte légèrement réduite */
+}
+
+/* Liens dans le pied de page */
+footer a {
+    color: #27ae60; /* Couleur verte pour les liens */
+    text-decoration: none; /* Supprime le soulignement */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+
+
+/* Responsive Design pour petits écrans */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* Réduction de la taille du titre */
+    }
+
+    .col {
+        flex: 1 1 100%; /* Les colonnes s'empilent verticalement */
+        margin-bottom: 20px; /* Espacement entre les colonnes */
+    }
+
+    .separator {
+        border-right: none; /* Suppression des séparateurs */
+    }
+}
+
+/* Design pour très petits écrans */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem; /* Réduction supplémentaire de la taille du titre */
+    }
+
+    header .banniere {
+        font-size: 1.2rem; /* Ajustement de la taille de la bannière */
+    }
+}
