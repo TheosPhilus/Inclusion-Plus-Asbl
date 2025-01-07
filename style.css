@@ -148,9 +148,18 @@ footer a:hover {
 
 /* Responsive Design pour petits écrans */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem; /* Réduction de la taille du titre */
+    @media (max-width: 768px) {
+        header h1 {
+            font-size: 2rem;
+        }
+    
+        header .banniere {
+            font-size: 1.2rem;
+            text-align: justify; /* Option : alignement justifié */
+            margin: 0 5%; /* Légère marge sur les côtés */
+        }
     }
+    
 
     .col {
         flex: 1 1 100%; /* Les colonnes s'empilent verticalement */
