@@ -48,7 +48,7 @@ header {
 
 /* Logo dans l'en-tête */
 header .imglogo img {
-    max-width: 120px; /* Taille augmentée pour un meilleur impact visuel */
+    max-width: 200px; /* Taille augmentée pour un meilleur impact visuel */
    
 }
 
