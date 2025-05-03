@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Définition du charset et du viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Titre de la page -->
+  <title>À Propos - Inclusion Plus Asbl</title>
+  
+  <!-- Lien vers le fichier CSS principal -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Défilement en douceur pour les ancres -->
+  <style>
+    html {
+      scroll-behavior: smooth; /* Permet un défilement fluide entre sections */
+    }
+  </style> 
+</head>
+<body>
+  <main>
+    <!-- En-tête identique à celui des autres pages -->
+    <header>
+      <!-- Logo de l’ASBL -->
+      <h2>
+        <a class="imglogo" href="index.html">
+          <img src="logo.jpg" alt="Logo Inclusion Plus">
+        </a>
+      </h2>
+      <!-- Bouton de don -->
+      <a href="don.html" class="don-button">Faire un Don</a>
+      <!-- Menu de navigation -->
+      <div class="menu-container">
+        <input type="checkbox" id="menu-checkbox">
+        <label for="menu-checkbox" class="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="menu-label">MENU</div>
+        </label>
+        <div class="menu-list">
+            <a href="a_propos.html">Apropos</a>
+            <a href="index.html#actualites">Actualités</a>
+          <a href="index.html#projets">Projets à venir</a>
+          <a href="index.html#contacts">Contacts</a>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Section À Propos -->
+    <section id="a-propos">
+      <!-- Titre de la section -->
+      <h1>À Propos de Inclusion Plus Asbl</h1>
+      
+      <!-- Conteneur de la photo et du texte -->
+      <div class="a-propos-content">
+        <!-- Photo illustrant les buts et valeurs de l'ASBL -->
+        <img src="buts_asbl.jpg" alt="Photo présentant les buts et valeurs de l'ASBL">
+        
+        <!-- Bloc de texte explicatif -->
+        <div class="a-propos-text">
+          <p>
+            Fondée le <strong>28 mars 2017</strong>, Inclusion Plus Asbl est née de la volonté d’un groupe de citoyens
+            passionnés et déterminés à promouvoir l’inclusion, la solidarité et le vivre-ensemble dans notre société.
+          </p>
+          <p>
+            Notre mission s’articule autour de trois axes majeurs :
+          </p>
+          <ul>
+            <li><strong>Favoriser l’inclusion sociale</strong> en créant des ponts entre les différents acteurs de la communauté.</li>
+            <li><strong>Protéger et valoriser la biodiversité</strong> par une approche respectueuse de l’environnement et 
+              la promotion d’actions durables.</li>
+            <li><strong>Renforcer la coopération</strong> au niveau local et international afin d’initier des projets de développement 
+              porteurs de changement et de bien-être pour tous.</li>
+          </ul>
+          <p>
+            La photo ci-contre illustre nos objectifs et nos engagements au quotidien. Chaque initiative, chaque projet 
+            incarne une part de notre rêve d’un monde plus juste et plus solidaire. Rejoignez-nous dans cette aventure !
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer identique à celui des autres pages -->
+    <footer>
+      <p class="text-center">
+        &copy; Inclusion Plus Asbl - Contactez-nous à l'adresse
+        <a href="mailto:asblinclusionplus@gmail.com">asblinclusionplus@gmail.com</a>
+      </p>
+    </footer>
+  </main>
+  
+  <!-- Script pour refermer le menu après clic (inutile sur cette page si le menu reste identique, mais inclus pour la cohérence) -->
+  <script>
+    document.querySelectorAll('.menu-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu-checkbox').checked = false;
+      });
+    });
+  </script>
+</body>
+</html>
