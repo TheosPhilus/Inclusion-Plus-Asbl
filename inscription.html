@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Déclaration des métadonnées -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription Activité du 31 mai</title>
+  <!-- Vous pouvez lier ici votre CSS externe -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style>
+    /* --- Styles généraux --- */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif; /* Police moderne */
+      background-color: #f9f9f9; /* Fond clair */
+      padding: 20px;
+      margin: 0;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #27ae60;
+    }
+    
+    /* --- Conteneur du formulaire --- */
+    form {
+      max-width: 500px;                    /* Largeur maximale du formulaire */
+      background: #fff;                     /* Fond blanc */
+      padding: 20px;                        /* Espacement interne */
+      margin: 20px auto;                    /* Centre horizontalement avec marge verticale */
+      border-radius: 4px;                   /* Bords arrondis */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Ombre légère */
+      opacity: 0;
+      animation: fadeIn 1s forwards;         /* Animation d'apparition */
+    }
+    
+    /* --- Animation d'apparition fadeIn --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* --- Styles des labels et des champs --- */
+    form label {
+      display: block;                       /* Affichage en bloc */
+      margin-top: 15px;                     /* Espacement vertical */
+      font-weight: bold;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form textarea:focus {
+      border-color: #27ae60;
+      outline: none;
+    }
+    
+    /* --- Styles pour le bouton de soumission --- */
+    form input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #27ae60;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form input[type="submit"]:hover {
+      background-color: #1e8a48;
+    }
+    
+    /* --- Animation lors de la soumission --- */
+    .submitted {
+      animation: slideUp 0.5s forwards;
+    }
+    @keyframes slideUp {
+      from { opacity: 1; }
+      to { opacity: 0; transform: translateY(-20px); }
+    }
+    
+    /* --- Message de remerciement --- */
+    #thankYouMessage {
+      display: none;
+      text-align: center;
+      font-size: 1.2rem;
+      color: #27ae60;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Inscription à l'activité du 31 mai</h1>
+  
+  <!-- Le formulaire qui envoie les données via Formspree -->
+  <form id="inscriptionForm" action="https://formspree.io/f/xdkgepay" method="POST">
+    <!-- Champ pour le nom -->
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" required>
+    
+    <!-- Champ pour l'email -->
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="_replyto" required>
+    
+    <!-- Champ caché pour préciser l'événement -->
+    <input type="hidden" name="event" value="Activité du 31 mai">
+    
+    <!-- Champ optionnel pour un message -->
+    <label for="message">Message (optionnel) :</label>
+    <textarea id="message" name="message" rows="4" placeholder="Votre message..."></textarea>
+    
+    <!-- Bouton de soumission -->
+    <input type="submit" value="S'inscrire">
+  </form>
+  
+  <!-- Conteneur du message de remerciement affiché après soumission -->
+  <div id="thankYouMessage">
+    Merci pour votre inscription !
+  </div>
+  
+  <!-- JavaScript pour validation, animation et soumission en AJAX -->
+  <script>
+    // Récupère le formulaire et le conteneur du message
+    const form = document.getElementById('inscriptionForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    
+    // Ecoute de l'évènement 'submit'
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêche le rechargement de page lors de la soumission
+      
+      // Déclenche l'animation de soumission
+      form.classList.add('submitted');
+      
+      // Après la fin de l'animation (500ms), envoie le formulaire via AJAX
+      setTimeout(function(){
+        const formData = new FormData(form);
+        
+        // Envoi du formulaire en mode AJAX
+        fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            // Si la soumission est réussie, on masque le formulaire et on affiche le message de remerciement
+            form.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+          } else {
+            alert("Une erreur s'est produite, veuillez réessayer.");
+          }
+        })
+        .catch(error => {
+          alert("Une erreur s'est produite, veuillez réessayer.");
+        });
+      }, 500); // 500ms correspondent à la durée de l'animation
+    });
+  </script>
+</body>
+</html>

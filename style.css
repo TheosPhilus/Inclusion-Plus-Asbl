@@ -160,9 +160,29 @@ header {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour l'effet au survol */
 }
 .activity:hover {
-  transform: translateY(-5px);         /* Effet de remontée lors du survol */
+  transform: translateY(-25px);         /* Effet de remontée lors du survol */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre accentuée lors du survol */
 }
+
+
+/* Styles pour le bouton d'inscription */
+.inscription-button {
+    display: inline-block;            /* Pour se comporter comme un bouton */
+    background-color: #27ae60;          /* Couleur verte d'accent */
+    color: #fff;                      /* Texte en blanc */
+    padding: 10px 20px;               /* Espacement interne */
+    margin-top: 15px;                 /* Marge pour espacer du texte environnant */
+    text-decoration: none;            /* Aucun soulignement */
+    border-radius: 4px;               /* Légers bords arrondis */
+    transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
+  }
+  
+  .inscription-button:hover {
+    background-color: #1e8a48;        /* Couleur un peu plus foncée au survol */
+  }
+  
+
+
 /* Style pour les images dans chaque activité */
 .activity img {
   width: 100%;                         /* L'image occupe toute la largeur du conteneur */
