@@ -23,6 +23,10 @@
     Europe">
     <meta name="author" content="Inclusion Plus Asbl">
 
+    <!--L'icône Menu-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
     <!-- Optimisation SEO supplémentaire -->
     <meta name="robots" content="index, follow">
     <!-- Robots directive pour indiquer aux moteurs de recherche d'indexer et suivre les liens de la page -->
@@ -33,7 +37,7 @@
     <meta property="og:title" content="Inclusion Plus Asbl">
     <meta property="og:description" content="Promouvoir la solidarité, le bien-être, la biodiversité et la coopération au développement. Contactez-nous pour des partenariats et dons.">
     <meta property="og:image" content="https://theosphilus.github.io/Inclusion-Plus-Asbl/logo.jpg">
-    <meta property="og:url" content="hhttps://theosphilus.github.io/Inclusion-Plus-Asbl/">
+    <meta property="og:url" content="https://theosphilus.github.io/Inclusion-Plus-Asbl/">
     <meta property="og:type" content="website">
     <!-- Balises Open Graph pour un meilleur affichage sur les réseaux sociaux -->
 
@@ -53,6 +57,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">        
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
 
     <!-- Balises Schema.org pour un meilleur SEO -->
     <script type="application/ld+json">
@@ -90,6 +96,7 @@
 </head>
 <body>
     <main>
+        
         <header>
             <!--Le logo-->
             <h2>
@@ -97,21 +104,78 @@
             </h2>
             <!-- fin logo-->
 
-            <h1>Inclusion PLUS Asbl</h1>
+            <!-- Bouton Don -->
+            <a href="don.html" class="don-button">Faire un Don</a>
 
-            <div>
-                <p class="banniere"> Favoriser la solidarité, le bien-être et le vivre ensemble dans la société.<br>
-                    Contribuer à la protection de la biodiversité et du climat.<br>
-                    Renforcer la coopération au développement dans les pays du sud.
-                </p>
+
+           
+          <!-- Menu de navigation -->
+          <div class="menu-container"> <!-- Conteneur principal du menu -->
+            <input type="checkbox" id="menu-checkbox"> <!-- Case à cocher invisible pour activer le menu -->
+        
+            <!-- Étiquette liée à la case à cocher (bouton du menu) -->
+            <label for="menu-checkbox" class="menu-toggle">
+              <div class="bar"></div> <!-- Barre 1 du hamburger -->
+              <div class="bar"></div> <!-- Barre 2 -->
+              <div class="bar"></div> <!-- Barre 3 -->
+              <div class="menu-label">MENU</div> <!-- Texte sous les barres -->
+            </label>
+        
+            <!-- Liste des liens affichés lorsque le menu est ouvert -->
+            <div class="menu-list">
+              <a href="#">Actualités</a>
+              <a href="#">Historiques</a>
+              <a href="#projets_à_venir">Projets à venir</a>
+              <a href="#contacts">Contacts</a>
             </div>
+          </div>
+        
         </header>
         <!-- fin en-tête -->
 
-        <!-- section - partie entre le header et le footer-->
-        <section>
+        <!--Description -->
+        <div class="banniere">
+            <h1>Inclusion PLUS Asbl</h1>
+
+                <div>
+                    <p> Favoriser la solidarité, le bien-être et le vivre ensemble dans la société.<br>
+                        Contribuer à la protection de la biodiversité et du climat.<br>
+                        Renforcer la coopération au développement dans les pays du sud.
+                    </p>
+                </div>
+        </div>
+
+
+
+    <!-- Avant le div existant -->
+        <div class="activities" id="projets_à_venir">
+            <h1>Nos Activités à venir</h1>
+            
+            <!-- Activité 1 -->
+            <div class="activity">
+            <h1>BBQ le 31 mai 2025 à 15h, Place Cardinale Mercier 20 Ougrée 4102</h1>
+            <p>Rejoignez-nous pour l'ouverture de nos activités de 2025 à partir de 15h</p>
+            <p>Brève présentation de l'ASBL</p>
+            <p>Les actions en perspective</p>
+            <p>Échanges</p>
+            <p>Collation</p>
+            <img src="mai.jpg" alt="Activité de mai BBQ"/>
+            </div>
+            
+            <!-- Activité 2 -->
+            <div class="activity">
+            <h1>Valorisation du travail des ASBL</h1>
+            <p>Plus de détails à venir sur cette activité...</p>
+            
+            <img src="septembre.jpg" alt="Activité de septembre"/>
+            </div>
+        </div>
+        
+        <!-- section - Informations générales-->
+        <section id="contacts">
+            
             <div class="clear"></div>
-            <h3 class="center">Informations Générales</h3>
+            <h2 class="center">Informations Générales</h2>
             <!-- colonne 1 -->
             <div class="col col-3-12 separator">
                 <h3>Adresse</h3>
@@ -160,5 +224,18 @@
             <p class="text-center">&copy; Inclusion Plus Asbl - Contactez-nous à l'adresse suivante <a href="mailto:asblinclusionplus@gmail.com">asblinclusionplus@gmail.com</a></p>
         </footer>
     </main>
+
+     <!-- ✅ Script pour refermer le menu après clic -->
+  <script>
+    document.querySelectorAll('.menu-list a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu-checkbox').checked = false;
+      });
+    });
+  </script>
+    
+    
 </body>
 </html>
+
+

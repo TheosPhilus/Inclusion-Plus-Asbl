@@ -1,183 +1,262 @@
-/* Reset de base pour éviter les styles par défaut des navigateurs */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Simplifie la gestion des marges et des paddings */
+/* ---------- Réinitialisation globale ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;                           /* Réinitialise les marges de tous les éléments */
+  padding: 0;                          /* Réinitialise les paddings de tous les éléments */
+  box-sizing: border-box;              /* Inclut padding et bordure dans la taille totale */
 }
 
-/* Style global du body : police, couleur, arrière-plan */
+/* ---------- Définition du scroll et dimensions du HTML ---------- */
+html {
+  scroll-behavior: smooth;             /* Active un défilement en douceur */
+  width: 100%;                         /* Le html occupe toute la largeur du viewport */
+  height: 100%;                        /* Le html occupe toute la hauteur du viewport */
+}
+
+/* ---------- Styles de base pour le body ---------- */
 body {
-    font-family: 'Lato', sans-serif; /* Police principale pour le texte */
-    line-height: 1.6; /* Espacement vertical pour faciliter la lecture */
-    color: #333; /* Couleur principale du texte */
-    background: #f9f9f9; /* Fond clair pour un rendu propre et moderne */
-    padding: 0 10px; /* Marges internes pour les petits écrans */
+  font-family: 'Helvetica Neue', Arial, sans-serif;  /* Police de caractères */
+  line-height: 1.6;                    /* Hauteur de ligne pour améliorer la lisibilité */
+  color: #333;                         /* Couleur de texte par défaut */
+  background: #f9f9f9;                 /* Couleur de fond */
+  width: 100%;                         /* Le body occupe toute la largeur */
+  height: 100%;                        /* Le body occupe toute la hauteur */
 }
 
-/* Titres : Style spécifique pour les h1, h2, et h3 */
-h1, h2, h3 {
-    font-family: 'Oswald', sans-serif; /* Police élégante et moderne */
-    color: #444; /* Couleur légèrement foncée pour les titres */
-    margin-bottom: 15px; /* Espacement sous les titres */
+/* ---------- Conteneur principal en affichage plein écran ---------- */
+main {
+  width: 100%;                         /* Le main occupe 100% de la largeur disponible */
+  min-height: 100vh;                   /* Hauteur minimale égale à la hauteur du viewport */
+  margin: 0 auto;                      /* Centre horizontalement si largeur réduite */
+  padding: 20px;                       /* Espacement interne pour le contenu */
 }
 
-/* Style pour le titre principal de la page */
-h1 {
-    font-size: 2.8rem; /* Taille du texte augmentée pour un effet imposant */
-    text-align: center; /* Centrage du texte */
-    color: #2c3e50; /* Couleur sombre pour le contraste */
-}
-
-/* Style pour les titres secondaires */
-h3 {
-    font-size: 1.6rem; /* Taille moyenne */
-    border-bottom: 2px solid #27ae60; /* Ligne décorative en dessous */
-    display: inline-block; /* Adapte la largeur au contenu */
-    margin-bottom: 20px; /* Espacement sous le titre */
-    padding-bottom: 5px; /* Légère marge interne */
-}
-
-/* Style de l'en-tête (header) */
+/* ---------- En-tête ---------- */
 header {
-    text-align: center; /* Centrage du contenu */
-    padding: 20px 0; /* Espacement vertical */
-    background: #27ae5fac; /* Couleur de fond : vert */
-    color: #fff; /* Texte blanc pour le contraste */
-    border-bottom: 5px solid #1e8449; /* Ligne inférieure sombre pour l'effet 3D */
+  display: flex;                       /* Disposition en flexbox */
+  align-items: center;                 /* Centre verticalement les éléments */
+  justify-content: space-between;      /* Espace entre le logo et les autres éléments */
+  padding: 15px 20px;                  /* Padding interne de l'en-tête */
+  background-color: #fff;              /* Fond blanc pour l'en-tête */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
+  position: relative;                  /* Position relative pour le positionnement des enfants */
+  z-index: 100;                        /* Z-index élevé afin d’être au-dessus des autres éléments */
 }
 
-/* Logo dans l'en-tête */
-header .imglogo img {
-    max-width: 200px; /* Taille augmentée pour un meilleur impact visuel */
-   
+/* ---------- Logo de l’asbl ---------- */
+.imglogo img {
+  height: 60px;                        /* Hauteur fixe du logo */
+  width: auto;                         /* Largeur automatique pour conserver les proportions */
 }
 
-/* Style pour la bannière sous le titre principal */
-header .banniere {
-    font-family: 'Raleway', sans-serif; /* Police élégante et lisible */
-    font-size: 1.4rem; /* Taille légèrement augmentée pour attirer l'attention */
-    margin-top: 10px; /* Espacement entre le titre et la bannière */
-    color: white; /* Texte clair pour contraster avec le fond */
-    text-align: justify;
-    margin-left: 400px;
-    font-weight: bold;
+/* ---------- Bouton de don ---------- */
+.don-button {
+  background-color: #27ae60;           /* Fond vert en accord avec le logo */
+  color: #fff;                         /* Texte en blanc */
+  padding: 10px 20px;                  /* Padding interne pour ajuster la taille */
+  border-radius: 4px;                  /* Bords arrondis */
+  text-decoration: none;               /* Pas de soulignement sur le lien */
+  font-weight: bold;                   /* Texte en gras pour attirer l'attention */
+  transition: background-color 0.3s ease; /* Transition douce lors du survol */
+}
+.don-button:hover {
+  background-color: #1e8a48;           /* Fond légèrement plus foncé au survol */
 }
 
+/* ---------- Menu de navigation ---------- */
+.menu-container {
+  position: relative;                  /* Position relative pour le dropdown */
+}
+#menu-checkbox {
+  display: none;                       /* Masque la case à cocher servant à déclencher le menu */
+}
+.menu-toggle {
+  display: flex;                       /* Affichage en flexbox pour le hamburger */
+  flex-direction: column;              /* Empile les barres verticalement */
+  align-items: center;                 /* Centre horizontalement */
+  cursor: pointer;                     /* Curseur de pointeur pour signaler l'interaction */
+}
+.menu-toggle .bar {
+  width: 25px;                         /* Largeur des barres du menu hamburger */
+  height: 3px;                         /* Hauteur de chaque barre */
+  background-color: #333;              /* Couleur des barres */
+  margin: 3px 0;                       /* Marges verticales entre chaque barre */
+  border-radius: 2px;                  /* Légers arrondis aux bords des barres */
+  transition: all 0.3s ease;           /* Transition pour d'éventuelles animations */
+}
+.menu-toggle .menu-label {
+  font-size: 12px;                     /* Taille de texte réduite pour le label */
+  margin-top: 5px;                     /* Marge au-dessus du texte */
+  color: #333;                         /* Couleur du texte en accord avec les barres */
+}
+.menu-list {
+  position: absolute;                  /* Positionnement en absolu pour le dropdown */
+  top: 100%;                           /* Placé juste après l'en-tête */
+  right: 0;                            /* Aligné à droite */
+  background: #fff;                    /* Fond blanc pour le menu */
+  border: 1px solid #ddd;              /* Bordure discrète autour du menu */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de survol */
+  opacity: 0;                          /* Initialement transparent */
+  visibility: hidden;                  /* Invisible jusqu'à activation */
+  transform: translateY(-10px);        /* Décalage vers le haut pour l'animation */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transition d'apparition */
+  z-index: 10;                         /* Place le menu au-dessus des autres éléments */
+  border-radius: 4px;                  /* Bords arrondis */
+  overflow: hidden;                    /* Masque les débordements */
+}
+#menu-checkbox:checked ~ .menu-list {
+  opacity: 1;                          /* Rendra le menu visible */
+  visibility: visible;                 /* Désactive la propriété masquant le menu */
+  transform: translateY(0);            /* Réinitialise le décalage vers le haut */
+}
+.menu-list a {
+  display: block;                      /* Chaque lien occupe une ligne entière */
+  padding: 10px 20px;                  /* Padding interne pour espacer le texte */
+  text-decoration: none;               /* Pas de soulignement */
+  color: #333;                         /* Texte en couleur sombre */
+  transition: background-color 0.2s ease; /* Transition pour effet lors du survol */
+}
+.menu-list a:hover {
+  background-color: #f2f2f2;           /* Fond qui change au survol */
+}
 
+/* ---------- Bannière ---------- */
+.banniere {
+  text-align: center;                  /* Centre le texte */
+  padding: 60px 20px;                  /* Padding important pour un bel espacement */
+  background: linear-gradient(45deg, #27ae60, #2ecc71); /* Dégradé en 45° entre deux verts */
+  color: #fff;                         /* Texte en blanc */
+  border-radius: 4px;                  /* Bords arrondis */
+  margin: 20px 0;                      /* Marge verticale pour séparer de ce qui précède et suit */
+}
+.banniere h1 {
+  font-size: 2.5rem;                   /* Taille importante pour le titre */
+  margin-bottom: 20px;                 /* Marge inférieure pour espacer des paragraphes */
+}
+.banniere p {
+  font-size: 1.2rem;                   /* Taille confortable pour les paragraphes */
+  max-width: 800px;       /* Limite la largeur du paragraphe */
+  margin: 0 auto;         /* Centre le bloc horizontalement */
+  text-align: justify;    /* Justifie le texte pour que les lignes soient alignées à gauche et à droite */
+  hyphens: auto;          /* Active la césure pour une meilleure justification (optionnel) */
+  /* text-align-last: center;  Optionnel : centre la dernière ligne si nécessaire */
+}
 
-/* Conteneur principal des sections */
+/* ---------- Section Activités à venir (affichage retravaillé) ---------- */
+/* N'oubliez pas d'ajouter la classe "activities" à votre div englobant et "activity" à chaque bloc individuel */
+.activities {
+  display: flex;                       /* Utilise flexbox pour organiser les activités */
+  flex-wrap: wrap;                     /* Permet aux activités de passer à la ligne sur petits écrans */
+  gap: 40px;                           /* Espace de 40px entre chaque activité */
+  margin: 40px 0;                      /* Marge verticale pour aérer cette section */
+}
+.activity {
+  background: #fff;                    /* Fond blanc pour la carte de l'activité */
+  border-radius: 4px;                  /* Bords arrondis */
+  padding: 20px;                       /* Espacement interne */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre légère pour donner de la profondeur */
+  flex: 1 1 calc(50% - 40px);           /* Permet d’afficher 2 activités par ligne sur grand écran */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour l'effet au survol */
+}
+.activity:hover {
+  transform: translateY(-5px);         /* Effet de remontée lors du survol */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre accentuée lors du survol */
+}
+/* Style pour les images dans chaque activité */
+.activity img {
+  width: 100%;                         /* L'image occupe toute la largeur du conteneur */
+  max-width: 500px;                    /* Largeur maximale pour éviter un dépassement */
+  height: auto;                        /* Conserve les proportions originales */
+  margin-top: 20px;                    /* Marge supérieure pour espacer l'image du texte */
+  border-radius: 4px;                  /* Bords arrondis de l'image */
+}
+
+/* ---------- Section Informations Générales ---------- */
 section {
-    max-width: 1200px; /* Largeur maximale pour un rendu sur grands écrans */
-    margin: 30px auto; /* Centrage horizontal avec marges verticales */
-    display: flex; /* Utilisation de flexbox pour les colonnes */
-    flex-wrap: wrap; /* Permet de passer à la ligne sur petits écrans */
-    gap: 20px; /* Espacement entre les colonnes */
-    justify-content: space-between; /* Répartition uniforme des colonnes */
+  display: flex;                       /* Disposition en flexbox */
+  flex-wrap: wrap;                     /* Permet aux colonnes de se repositionner sur petits écrans */
+  justify-content: space-between;      /* Répartit l'espace également entre colonnes */
+  margin: 40px 0;                      /* Marge verticale pour séparer la section */
+  gap: 20px;                           /* Espace entre chaque colonne */
+}
+section .col {
+  flex: 1 1 220px;                     /* Définit une largeur minimale de 220px par colonne */
+  background: #fff;                     /* Fond blanc pour chaque colonne */
+  padding: 15px 20px;                  /* Espacement interne des colonnes */
+  border-radius: 4px;                  /* Bords arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour l'aspect carte */
+}
+.center {
+  text-align: center;                  /* Centre le texte */
+  width: 100%;                         /* Occupe toute la largeur */
+  margin-bottom: 20px;                 /* Marge inférieure pour espacer du contenu suivant */
 }
 
-/* Style général des colonnes */
-.col {
-    background: #fff; /* Fond blanc pour contraster avec le fond global */
-    padding: 20px; /* Espacement interne */
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet flottant */
-    flex: 1 1 calc(25% - 20px); /* Largeur adaptative des colonnes */
-    min-width: 250px; /* Largeur minimale pour éviter l'écrasement */
-}
-
-/* Séparation visuelle entre colonnes */
-.separator {
-    border-right: 1px solid #ddd; /* Ligne grise entre colonnes */
-}
-
-/* Suppression de la ligne de séparation pour la dernière colonne */
-.separator.last {
-    border-right: none;
-}
-
-/* Style des liens email */
-.email-link {
-    color: #27ae60; /* Couleur verte pour les liens email */
-    text-decoration: none; /* Supprime le soulignement */
-    font-weight: bold; /* Gras pour mettre en valeur */
-}
-
-.email-link:hover {
-    text-decoration: underline; /* Réaction au survol */
-}
-
-/* Icônes de réseaux sociaux */
+/* ---------- Réseaux sociaux ---------- */
 .social-icons {
-    display: flex; /* Aligne les icônes horizontalement */
-    gap: 10px; /* Espacement entre les icônes */
-    margin-top: 10px; /* Marges supérieures */
+  margin-top: 10px;                    /* Marge en haut pour espacer du contenu precedent */
 }
-
 .social-icons a img {
-    width: 50px; /* Taille augmentée des icônes */
-    height: 50px; /* Taille uniforme pour un rendu propre */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Animation fluide au survol */
+  width: 32px;                         /* Définition d'une largeur fixe pour chaque icône */
+  height: auto;                        /* Maintient les proportions originales */
+  margin-right: 10px;                  /* Espace entre les icônes */
+  transition: transform 0.3s ease;     /* Transition pour l'effet de zoom */
 }
-
 .social-icons a:hover img {
-    transform: scale(1.1); /* Agrandissement des icônes */
-    opacity: 0.8; /* Légère transparence au survol */
+  transform: scale(1.1);               /* Agrandissement léger lorsque le curseur survole l’icône */
 }
 
-/* Pied de page (footer) */
+/* ---------- Footer ---------- */
 footer {
-    text-align: center; /* Centrage du contenu */
-    padding: 10px 0; /* Espacement vertical */
-    background: #2c3e50; /* Couleur sombre */
-    color: #fff; /* Texte blanc */
-    margin-top: 30px; /* Espacement par rapport au contenu précédent */
-    font-size: 0.9rem; /* Taille du texte légèrement réduite */
+  background-color: #333;              /* Fond sombre pour le pied de page */
+  color: #fff;                         /* Texte en blanc pour le contraste */
+  text-align: center;                  /* Texte centré */
+  padding: 20px 10px;                  /* Padding interne */
+  border-radius: 4px;                  /* Bords arrondis */
+  margin-top: 40px;                    /* Marge supérieure pour séparer du contenu principal */
 }
-
-/* Liens dans le pied de page */
 footer a {
-    color: #27ae60; /* Couleur verte pour les liens */
-    text-decoration: none; /* Supprime le soulignement */
+  color: #27ae60;                     /* Liens en vert pour rester dans l'identité graphique */
+  text-decoration: none;              /* Supprime le soulignement sur les liens */
 }
 
-footer a:hover {
-    text-decoration: underline; /* Ajoute un soulignement au survol */
+/* ---------- Quelques utilitaires ---------- */
+.clear {
+  clear: both;                        /* Efface les flottants */
+}
+main > div {
+  margin-bottom: 40px;                /* Marge pour espacer les blocs de contenu dans le main */
 }
 
-
-
-/* Responsive Design pour petits écrans */
-@media (max-width: 768px) {
-    @media (max-width: 768px) {
-        header h1 {
-            font-size: 2rem;
-        }
-    
-        header .banniere {
-            font-size: 1.2rem;
-            text-align: justify; /* Option : alignement justifié */
-            margin: 0 5%; /* Légère marge sur les côtés */
-        }
-    }
-    
-
-    .col {
-        flex: 1 1 100%; /* Les colonnes s'empilent verticalement */
-        margin-bottom: 20px; /* Espacement entre les colonnes */
-    }
-
-    .separator {
-        border-right: none; /* Suppression des séparateurs */
-    }
-}
-
-/* Design pour très petits écrans */
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8rem; /* Réduction supplémentaire de la taille du titre */
-    }
-
-    header .banniere {
-        font-size: 1.2rem; /* Ajustement de la taille de la bannière */
-    }
+/* ---------- Responsive (Pour les écrans larges) ---------- */
+@media (min-width: 768px) {
+  /* Masque le menu hamburger et le checkbox sur grand écran */
+  .menu-toggle,
+  #menu-checkbox {
+    display: none;                    /* Cache le menu mobile sur desktop */
+  }
+  .menu-list {
+    position: static;                 /* Le menu passe en affichage statique */
+    display: flex;                    /* Les liens sont affichés en ligne */
+    opacity: 1;                       /* Rend le menu visible */
+    visibility: visible;              /* Dé-masque le menu */
+    transform: none;                  /* Annule la transformation */
+    box-shadow: none;                 /* Supprime l'ombre */
+    border: none;                     /* Supprime la bordure */
+    background: transparent;          /* Fond transparent */
+  }
+  .menu-list a {
+    padding: 10px 15px;               /* Padding ajusté pour les liens en ligne */
+    margin: 0 5px;                    /* Marges entre les liens */
+    background: none;                 /* Pas de fond */
+  }
+  
+  /* Pour la section activités, on affiche côte à côte si la largeur le permet */
+  .activities {
+    flex-direction: row;              /* Organise les activités en ligne */
+  }
+  .activity {
+    flex: 1 1 calc(50% - 40px);        /* Chaque activité occupe environ 50% de la largeur en tenant compte du gap */
+  }
 }
