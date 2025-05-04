@@ -64,6 +64,22 @@ header {
   background-color: #1e8a48;           /* Fond légèrement plus foncé au survol */
 }
 
+/* Bouton "Devenir membre" */
+.member-button {
+  background-color: #ff9800; /* Une couleur différente pour attirer l'attention */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.member-button:hover {
+  background-color: #e68900; /* Légère variation au survol */
+}
+
+
 /* ---------- Menu de navigation ---------- */
 .menu-container {
   position: relative;                  /* Position relative pour le dropdown */
@@ -180,6 +196,33 @@ header {
   .inscription-button:hover {
     background-color: #1e8a48;        /* Couleur un peu plus foncée au survol */
   }
+
+
+  /* Styles pour la section des boutons de partage */
+.share-buttons {
+    margin-top: 15px; /* Espace au-dessus des boutons */
+  }
+  
+  .share-buttons a {
+    display: inline-block;     /* Affichage côte à côte */
+    margin-right: 10px;        /* Espace entre les boutons */
+    transition: transform 0.3s ease; /* Effet au survol */
+  }
+  
+  .share-buttons a:last-child {
+    margin-right: 0;
+  }
+  
+  .share-buttons img {
+    width: 32px; /* Taille des icônes */
+    height: auto;
+    vertical-align: middle;
+  }
+  
+  .share-buttons a:hover img {
+    transform: scale(1.1);
+  }
+  
   
 
 
