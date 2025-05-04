@@ -121,11 +121,11 @@
       <!-- 🔹 Sélection du statut -->
       <label>Statut :</label>
       <div>
-        <input type="radio" id="travailleur" name="cotisation" value="Travailleur - 75€" required>
+        <input type="radio" id="travailleur" name="cotisation" value="75€" required>
         <label for="travailleur">Travailleur (75€)</label>
       </div>
       <div>
-        <input type="radio" id="non-travailleur" name="cotisation" value="Non-travailleur - 35€" required>
+        <input type="radio" id="non-travailleur" name="cotisation" value="35€" required>
         <label for="non-travailleur">Non-travailleur (35€)</label>
       </div>
 
@@ -134,7 +134,7 @@
   </div>
 
   <!-- 🔹 Script EmailJS pour l'envoi automatique -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       emailjs.init("2o8iueLuSuuGZfNQL"); 
@@ -170,3 +170,4 @@
 
 </body>
 </html>
+
