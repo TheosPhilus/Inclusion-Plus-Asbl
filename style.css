@@ -42,6 +42,7 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
   position: relative;                  /* Position relative pour le positionnement des enfants */
   z-index: 100;                        /* Z-index élevé afin d’être au-dessus des autres éléments */
+  flex-wrap: wrap; /* ✅ Permet aux éléments de passer à la ligne si nécessaire */
 }
 
 /* ---------- Logo de l’asbl ---------- */
@@ -160,25 +161,74 @@ header {
 }
 
 /* ---------- Section Activités à venir (affichage retravaillé) ---------- */
-/* N'oubliez pas d'ajouter la classe "activities" à votre div englobant et "activity" à chaque bloc individuel */
+/* 🔹 Conteneur des activités */
 .activities {
-  display: flex;                       /* Utilise flexbox pour organiser les activités */
-  flex-wrap: wrap;                     /* Permet aux activités de passer à la ligne sur petits écrans */
-  gap: 40px;                           /* Espace de 40px entre chaque activité */
-  margin: 40px 0;                      /* Marge verticale pour aérer cette section */
+  display: flex; /* ✅ Utilise Flexbox pour aligner les activités */
+  flex-direction: column; /* ✅ Organise les activités en colonne */
+  gap: 40px; /* ✅ Ajoute un espace de 40px entre chaque activité */
+  margin: 40px 0; /* ✅ Ajoute une marge pour bien séparer la section */
+  
 }
+
+/* 🔹 Style individuel des cartes d'activité */
 .activity {
-  background: #fff;                    /* Fond blanc pour la carte de l'activité */
-  border-radius: 4px;                  /* Bords arrondis */
-  padding: 20px;                       /* Espacement interne */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre légère pour donner de la profondeur */
-  flex: 1 1 calc(50% - 40px);           /* Permet d’afficher 2 activités par ligne sur grand écran */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour l'effet au survol */
+  text-align: center; /* ✅ Centre le texte de chaque activité */
+  padding: 25px; /* ✅ Ajoute un espace intérieur pour plus de lisibilité */
+  border-radius: 8px; /* ✅ Arrondit légèrement les bords pour un design plus moderne */
+  background: #f5f5f5; /* ✅ Couleur de fond gris clair pour un effet épuré */
+  transition: background-color 0.3s ease; /* ✅ Animation douce du changement de couleur */
 }
+
+/* 🔹 Effet au survol des cartes */
 .activity:hover {
-  transform: translateY(-25px);         /* Effet de remontée lors du survol */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre accentuée lors du survol */
+  background: #e0e0e0; /* ✅ Change la couleur de fond au survol */
 }
+
+/* 🔹 Style du titre "Nos Activités à venir" */
+.activities h1 {
+  font-size: 2.8rem; /* ✅ Augmente la taille pour une meilleure visibilité */
+  font-weight: bold; /* ✅ Rend le texte plus accrocheur */
+  text-align: center; /* ✅ Centre le titre */
+  color: #2c3e50; /* ✅ Change la couleur du texte en bleu profond au lieu du vert */
+  margin-bottom: 20px; /* ✅ Ajoute une marge en bas pour espacer du contenu */
+  position: relative; /* ✅ Permet d'ajouter un élément décoratif */
+}
+
+/* 🔹 Effet de soulignement animé sous le titre */
+.activities h1::after {
+  content: ""; /* ✅ Crée un élément visuel */
+  display: block; /* ✅ Affiche le soulignement sous forme de bloc */
+  width: 80px; /* ✅ Définit la largeur initiale du soulignement */
+  height: 4px; /* ✅ Définit l'épaisseur de la ligne */
+  background: #e67e22; /* ✅ Couleur orange terre cuite pour le contraste */
+  margin: 10px auto 0; /* ✅ Centre la ligne horizontalement */
+  transition: width 0.3s ease; /* ✅ Ajoute une animation fluide */
+}
+
+/* 🔹 Effet d'agrandissement au survol du titre */
+.activities h1:hover::after {
+  width: 120px; /* ✅ Étire la ligne lorsqu'on survole le titre */
+}
+
+
+
+/* 🔹 Style des liens vers les inscriptions et détails */
+.event-details {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #e67e22;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.event-details:hover {
+  background: #d35400;
+}
+
+
 
 
 /* Styles pour le bouton d'inscription */

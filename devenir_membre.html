@@ -88,6 +88,13 @@
 </style>
 
 <body>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.body.insertAdjacentHTML('afterbegin', data));
+  </script>
+  
+  
   <h1>Devenir membre de Inclusion Plus Asbl</h1>
 
   <!-- 🔹 Formulaire d’inscription -->
@@ -170,4 +177,3 @@
 
 </body>
 </html>
-
