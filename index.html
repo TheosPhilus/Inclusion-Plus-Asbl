@@ -58,6 +58,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
 
     <!-- Balises Schema.org pour un meilleur SEO -->
@@ -97,143 +99,195 @@
 <body>
     <main>
         
-        <header>
-            
-            <!--Le logo-->
-            <h2>
-                <a class="imglogo"  href="index.html"><img src="logo.jpg"  alt="Logo Inclusion Plus"/></a>
-            </h2>
-            <!-- fin logo-->
+      <!-- ============== Header ============== -->
+<header class="header-alt">
+  <!-- Conteneur principal pour aligner les éléments du header -->
+  <div class="header-container">
+    
+    <!-- ------------ Partie Gauche : Logo ------------ -->
+    <div class="logo-container">
+      <!-- Le logo renvoie vers la page d'accueil -->
+      <a href="index.html">
+        <img src="logo.jpg" alt="Logo Inclusion Plus" class="logo-alt">
+      </a>
+    </div>
+    
+    <!-- ------------ Partie Centrale : Navigation ------------ -->
+    <nav class="nav-container">
+      <!-- Chaque lien de navigation possède une animation underline au survol -->
+      <a href="a_propos.html" class="nav-link">A propos</a>
+      <a href="#" class="nav-link">Actualités</a>
+      <a href="#projets" class="nav-link">Projets</a>
+      <a href="#contacts" class="nav-link">Contacts</a>
+    </nav>
+    
+    <!-- ------------ Partie Droite : Boutons d'Action ------------ -->
+    <div class="cta-buttons">
+      <!-- Bouton pour faire un don -->
+      <a href="don.html" class="don-button-alt">Faire un Don</a>
+      <!-- Bouton pour devenir membre -->
+      <a href="devenir_membre.html" class="member-button-alt">Devenir membre</a>
+    </div>
+    
+  </div>
+</header>
+<!-- ============== Fin du Header ============== -->
 
-            <!-- Bouton Don -->
-            <a href="don.html" class="don-button">Faire un Don</a>
 
-            <!-- Bouton Devenir membre -->
-            <a href="devenir_membre.html" class="member-button">Devenir membre</a>
 
-           
-          <!-- Menu de navigation -->
-          <div class="menu-container"> <!-- Conteneur principal du menu -->
-            <input type="checkbox" id="menu-checkbox"> <!-- Case à cocher invisible pour activer le menu -->
-        
-            <!-- Étiquette liée à la case à cocher (bouton du menu) -->
-            <label for="menu-checkbox" class="menu-toggle">
-              <div class="bar"></div> <!-- Barre 1 du hamburger -->
-              <div class="bar"></div> <!-- Barre 2 -->
-              <div class="bar"></div> <!-- Barre 3 -->
-              <div class="menu-label">MENU</div> <!-- Texte sous les barres -->
-            </label>
-        
-            <!-- Liste des liens affichés lorsque le menu est ouvert -->
-            <div class="menu-list">
-              <a href="a_propos.html">A propos</a>
-              <a href="#">Actualités</a>
-              <a href="#projets_à_venir">Projets à venir</a>
-              <a href="#contacts">Contacts</a>
-            </div>
-          </div>
-        
-        </header>
-        <!-- fin en-tête -->
+      <!-- 🔹 Bannière interactive -->
+<div class="banniere">
+    <!-- ✅ Titre animé -->
+    <h1 class="banniere-title">🌍 Inclusion PLUS Asbl</h1>
 
-        <!--Description -->
-        <div class="banniere">
-            <h1>Inclusion PLUS Asbl</h1>
+    <!-- ✅ Texte descriptif animé -->
+    <div class="banniere-text">
+        <p>✨ Favoriser la solidarité, le bien-être et le vivre ensemble.</p>
+        <p>🌿 Contribuer à la protection de la biodiversité et du climat.</p>
+        <p>🤝 Renforcer la coopération au développement dans les pays du sud.</p>
+    </div>
 
-                <div>
-                    <p> Favoriser la solidarité, le bien-être et le vivre ensemble dans la société.<br>
-                        Contribuer à la protection de la biodiversité et du climat.<br>
-                        Renforcer la coopération au développement dans les pays du sud.
-                    </p>
+    <!-- ✅ Bouton d’action pour inviter à en savoir plus -->
+    <a href="#projets" class="banniere-button">Découvrir nos actions</a>
+</div>
+
+
+
+
+
+    <!-- Section des activités à venir -->
+        <div class="activities" id="projets">
+            <h1>Nos Activités à venir</h1> <!-- Titre principal -->
+
+            <!-- 🔥 Activité 1 - BBQ du 31 mai -->
+            <div class="activity"> <!-- Conteneur de l'activité -->
+                <img src="mai.jpg" alt="BBQ de mai"> <!-- Image associée à l'activité -->
+                <div class="activity-info"> <!-- Conteneur texte de l'activité -->
+                    <h2>BBQ le 31 mai 2025</h2> <!-- Titre de l'événement -->
+                    <p><strong>📍 Lieu :</strong> Place Cardinal Mercier 20, Ougrée 4102</p> <!-- Adresse -->
+                    <p><strong>🕒 Heure :</strong> 15h 00</p> <!-- Heure de l'événement -->
+                    <p>Rejoignez-nous pour l'ouverture de nos activités de 2025</p> <!-- Texte descriptif -->
+                    <p>• Brève présentation de l'ASBL</p> <!-- Informations supplémentaires -->
+                    <p>• Les actions en perspective</p>
+                    <p>• Échanges & Collation</p>
+                    <a href="inscription.html" class="inscription-button">📅 S'inscrire</a> <!-- Bouton d'inscription -->
                 </div>
+            </div>
+
+            <!-- 🔥 Activité 2 - Valorisation des ASBL -->
+            <div class="activity">
+                <img src="septembre.jpg" alt="Valorisation ASBL"> <!-- Image de l'événement -->
+                <div class="activity-info">
+                    <h2>Valorisation du travail des ASBL - 25 Octobre 2025</h2> <!-- Titre de l'événement -->
+                    <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
+                </div>
+            </div>
+
+            <!-- 🔥 Activité 3 - Défi Bueren -->
+            <div class="activity">
+                <img src="Défi.jpg" alt="Défi Bueren"> <!-- Image de l'événement -->
+                <div class="activity-info">
+                    <h2>Défi Bueren - Ensemble pour la cohésion</h2> <!-- Titre de l'événement -->
+                    <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
+                </div>
+            </div>
+
+            <!-- 🔥 Activité 4 - Journée sans voiture -->
+            <div class="activity">
+                <img src="journée_sans_voiture.jpg" alt="Journée sans voiture"> <!-- Image de l'événement -->
+                <div class="activity-info">
+                    <h2>Journée sans voiture à Seraing</h2> <!-- Titre de l'événement -->
+                    <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
+                </div>
+            </div>
         </div>
 
 
 
-    <!-- Avant le div existant -->
-        <div class="activities" id="projets_à_venir">
-            <h1>Nos Activités à venir</h1>
-            
-            <!-- Activité 1 -->
-            <div class="activity">
-            <h1>BBQ le 31 mai 2025</h1>
-            <p> <strong>Lieu: </strong> Place Cardinale Mercier 20 Ougrée 4102</p>
-            <p> <strong>Heure: </strong> 15h 00</p>
-            <p>Rejoignez-nous pour l'ouverture de nos activités de 2025</p>
-            
-              <!-- Bouton d'inscription qui redirige vers la page inscription.html -->
-            <a href="inscription.html" class="inscription-button">S'inscrire</a>
-            
-            <p>Brève présentation de l'ASBL</p>
-            <p>Les actions en perspective</p>
-            <p>Échanges</p>
-            <p>Collation</p>
-            <img src="mai.jpg" alt="Activité de mai BBQ"/>
-            </div>
-            
-            <!-- Activité 2 -->
-            <div class="activity">
-            <h1>Valorisation du travail des ASBL le 25 Octobre 2025</h1>
-            <p class="member-button">Détails bientôt disponibles</p>
-            
-            <img src="septembre.jpg" alt="Activité de septembre"/>
-            </div>
+        
+        
+      <!-- 🔹 Section - Informations Générales -->
+<!-- 🔹 Section des informations générales -->
+<section id="contacts">
+    <!-- ✅ Titre principal avec icône pour une meilleure présentation -->
+    <h1 class="center">📌 Informations Générales</h1>
+
+    <!-- ✅ Conteneur pour organiser les différentes informations -->
+    <div class="info-container">
+        
+        <!-- ✅ Colonne 1 - Adresse -->
+        <div class="info-card">
+            <h3>🏠 Adresse</h3>
+            <p><strong>Rue et numéro :</strong> Rue Paquay 5</p> <!-- Adresse précise -->
+            <p><strong>Code postal :</strong> 4100 Seraing</p> <!-- Code postal -->
+            <p><strong>Pays :</strong> Belgique</p> <!-- Pays -->
         </div>
 
-        
-        
-        <!-- section - Informations générales-->
-        <section id="contacts">
-            
-            <div class="clear"></div>
-            <h2 class="center">Informations Générales</h2>
-            <!-- colonne 1 -->
-            <div class="col col-3-12 separator">
-                <h3>Adresse</h3>
-                <p><strong>Rue et numéro : </strong>Rue Paquay 5</p>
-                <p><strong>Code postal : </strong>4100 Seraing</p>
-                <p><strong>Pays : </strong>Belgique</p>
-            </div>
-            <!-- colonne 2 -->
-            <div class="col col-3-12 separator">
-                <h3>Nos Contacts</h3>
-                <p><strong>Num d'entreprise : </strong>BE 0673.576.908</p>
-                <p><strong>Tél : </strong>+32487842412</p>
-                <p><strong>E-mail : </strong><a href="mailto:asblinclusionplus@gmail.com" class="email-link">asblinclusionplus@gmail.com</a></p>
-            </div>
-            <!-- colonne 3 -->
-            <div class="col col-3-12 separator">
-                <h3>Aides, Dons, Partenariats</h3>
-                <p>Nous vous invitons à nous contacter pour toute sorte de dons, d'aides et de partenariats.</p>
-                <p><strong>Num bancaire : </strong></p>
-                <p>BE57 0689 0660 1635</p>
-            </div>
-            <!-- colonne 4 -->
-            <div class="col col-3-12 separator last">
-                <h3>Nous suivre</h3>
-                <p>Vous pouvez nous suivre sur :</p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61571333023481" target="_blank" title="Facebook">
-                        <img src="facebook.png" alt="Facebook" />
-                    </a>
-                    <a href="https://www.instagram.com/yourprofile" target="_blank" title="Instagram">
-                        <img src="instagram.png" alt="Instagram" />
-                    </a>
-                    <a href="https://www.tiktok.com/@inclusionplusasbl" target="_blank" title="TikTok">
-                        <img src="tik-tok.png" alt="TikTok" />
-                    </a>
-                    <a href="https://wa.me/32487842412" target="_blank" title="WhatsApp">
-                        <img src="whatsapp.png" alt="WhatsApp" />
-                    </a>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </section>
+        <!-- ✅ Colonne 2 - Contacts -->
+        <div class="info-card">
+            <h3>📞 Nos Contacts</h3>
+            <p><strong>Num d'entreprise :</strong> BE 0673.576.908</p> <!-- Numéro d'entreprise -->
+            <p><strong>Tél :</strong> <a href="tel:+32487842412" class="contact-link">+32 487 84 24 12</a></p> <!-- Lien cliquable pour appeler -->
+            <p><strong>E-mail :</strong> <a href="mailto:asblinclusionplus@gmail.com" class="email-link">asblinclusionplus@gmail.com</a></p> <!-- Lien pour envoyer un e-mail -->
+        </div>
 
-        <!--Footer-->
-        <footer>
-            <p class="text-center">&copy; Inclusion Plus Asbl - Contactez-nous à l'adresse suivante <a href="mailto:asblinclusionplus@gmail.com">asblinclusionplus@gmail.com</a></p>
-        </footer>
+        <!-- ✅ Colonne 3 - Aides & Dons -->
+        <div class="info-card">
+            <h3>🤝 Aides, Dons, Partenariats</h3>
+            <p>Nous vous invitons à nous contacter pour toute forme de soutien.</p> <!-- Texte explicatif -->
+            <p><strong>Num bancaire :</strong></p> <!-- Numéro bancaire mis en avant -->
+            <p class="bank-details">BE57 0689 0660 1635</p>
+        </div>
+
+        <!-- ✅ Colonne 4 - Réseaux Sociaux -->
+        <div class="info-card">
+            <h3>🌍 Nous suivre</h3>
+            <p>Rejoignez-nous sur :</p> <!-- Texte pour inciter à suivre -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61571333023481" target="_blank">
+                    <img src="facebook.png" alt="Facebook"> <!-- Icône Facebook -->
+                </a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank">
+                    <img src="instagram.png" alt="Instagram"> <!-- Icône Instagram -->
+                </a>
+                <a href="https://www.tiktok.com/@inclusionplusasbl" target="_blank">
+                    <img src="tik-tok.png" alt="TikTok"> <!-- Icône TikTok -->
+                </a>
+                <a href="https://wa.me/32487842412" target="_blank">
+                    <img src="whatsapp.png" alt="WhatsApp"> <!-- Icône WhatsApp -->
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🔹 Footer élégant -->
+<footer>
+    <div class="footer-container">
+        <p class="footer-text">
+            &copy; Inclusion Plus Asbl - Contactez-nous à l'adresse suivante 
+            <a href="mailto:asblinclusionplus@gmail.com">asblinclusionplus@gmail.com</a>
+        </p>
+        
+        <!-- ✅ Icônes de réseaux sociaux -->
+        <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61571333023481" target="_blank">
+                <img src="facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com/@inclusionplusasbl" target="_blank">
+                <img src="tik-tok.png" alt="TikTok">
+            </a>
+            <a href="https://wa.me/32487842412" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+</footer>
+
+
     </main>
 
      <!-- ✅ Script pour refermer le menu après clic -->

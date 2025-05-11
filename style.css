@@ -32,24 +32,114 @@ main {
   padding: 20px;                       /* Espacement interne pour le contenu */
 }
 
+
+
+
 /* ---------- En-tête ---------- */
-header {
-  display: flex;                       /* Disposition en flexbox */
-  align-items: center;                 /* Centre verticalement les éléments */
-  justify-content: space-between;      /* Espace entre le logo et les autres éléments */
-  padding: 15px 20px;                  /* Padding interne de l'en-tête */
-  background-color: #fff;              /* Fond blanc pour l'en-tête */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
-  position: relative;                  /* Position relative pour le positionnement des enfants */
-  z-index: 100;                        /* Z-index élevé afin d’être au-dessus des autres éléments */
-  flex-wrap: wrap; /* ✅ Permet aux éléments de passer à la ligne si nécessaire */
+/* ------------ Style général du header alternatif ------------ */
+.header-alt {
+  position: sticky;                      /* Le header reste collé en haut lors du scroll */
+  top: 0;                                /* Positionné en haut */
+  width: 100%;                           /* Pleine largeur */
+  background: rgba(255, 255, 255, 0.8);    /* Fond semi-transparent pour l'effet glassmorphism */
+  backdrop-filter: blur(10px);           /* Flou en arrière-plan pour l'effet glass */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
+  z-index: 1000;                         /* S'assure que le header est au-dessus du reste */
+  transition: all 0.3s ease;             /* Transition fluide pour les changements */
 }
 
-/* ---------- Logo de l’asbl ---------- */
-.imglogo img {
-  height: 60px;                        /* Hauteur fixe du logo */
-  width: auto;                         /* Largeur automatique pour conserver les proportions */
+/* ------------ Conteneur interne du header ------------ */
+.header-container {
+  width: 100%;                     /* Largeur maximale pour le contenu */
+  margin: 5px auto;                        /* Centre le contenu horizontalement */
+  padding: 10px 20px;                    /* Espacement intérieur */
+  display: flex;                         /* Utilisation de Flexbox pour aligner les éléments */
+  align-items: center;                   /* Alignement vertical centré */
+  justify-content: space-between;        /* Espace entre le logo, navigation et boutons */
 }
+
+/* ------------ Partie Gauche : Logo ------------ */
+.logo-container .logo-alt {
+  width: 100px;                          /* Taille du logo */
+  transition: transform 0.3s ease;        /* Transition pour l'effet au survol */
+}
+.logo-container .logo-alt:hover {
+  transform: scale(1.1) rotate(3deg);      /* Légère augmentation et rotation dynamique au survol */
+}
+
+/* ------------ Partie Centrale : Navigation ------------ */
+.nav-container {
+  display: flex;                         /* Affichage en ligne */
+  gap: 20px;                             /* Espacement entre les liens */
+}
+.nav-link {
+  text-decoration: none;                 /* Suppression du soulignement */
+  color: #333;                           /* Couleur du texte */
+  font-size: 1rem;                       /* Taille de la police */
+  position: relative;                    /* Nécessaire pour positionner l'underline animé */
+  transition: color 0.3s ease;           /* Transition pour la couleur au survol */
+}
+
+/* Animation underline pour chaque lien */
+.nav-link::after {
+  content: "";                           /* Contenu vide pour l'underline */
+  position: absolute;
+  left: 0;
+  bottom: -3px;                          /* Position sous le texte */
+  width: 0%;                           /* Départ en largeur nulle */
+  height: 2px;                           /* Épaisseur de l'underline */
+  background: #27ae60;                   /* Couleur de l'underline */
+  transition: width 0.3s ease;           /* Animation de l'extension */
+}
+.nav-link:hover {
+  color: #27ae60;                        /* Changement de couleur au survol */
+}
+.nav-link:hover::after {
+  width: 100%;                           /* L'underline s'étend sur toute la largeur */
+}
+
+/* ------------ Partie Droite : Boutons d'Action ------------ */
+.cta-buttons a {
+  padding: 8px 15px;                     /* Espacement intérieur (padding) */
+  margin-left: 10px;                     /* Espacement entre les boutons */
+  border-radius: 5px;                    /* Bordures arrondies */
+  text-decoration: none;                 /* Pas de soulignement */
+  font-size: 0.9rem;                     /* Taille de police légèrement plus petite */
+  transition: transform 0.3s ease, background 0.3s ease; /* Transition pour le hover */
+}
+.don-button-alt {
+  background: #F39C12;                   /* Fond orange pour le bouton Don */
+  color: white;
+}
+.member-button-alt {
+  background: #27AE60;                   /* Fond vert pour le bouton Membre */
+  color: white;
+}
+.don-button-alt:hover, .member-button-alt:hover {
+  transform: scale(1.05);                /* Légère augmentation au survol */
+}
+
+/* ------------ Styles Responsive ------------ */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;              /* Disposition en colonne sur mobile */
+    gap: 10px;
+  }
+  .nav-container {
+    flex-wrap: wrap;                     /* Opération wrap si trop d'espace requis */
+    justify-content: center;             /* Centre la navigation */
+  }
+  .cta-buttons {
+    display: flex;
+    justify-content: center;             /* Centre les boutons sur mobile */
+    gap: 10px;
+  }
+}
+
+
+
+
+
 
 /* ---------- Bouton de don ---------- */
 .don-button {
@@ -79,6 +169,9 @@ header {
 .member-button:hover {
   background-color: #e68900; /* Légère variation au survol */
 }
+
+
+
 
 
 /* ---------- Menu de navigation ---------- */
@@ -138,248 +231,357 @@ header {
   background-color: #f2f2f2;           /* Fond qui change au survol */
 }
 
-/* ---------- Bannière ---------- */
+
+
+
+/* ✅ Bannière avec effet Parallax */
 .banniere {
-  text-align: center;                  /* Centre le texte */
-  padding: 60px 20px;                  /* Padding important pour un bel espacement */
-  background: linear-gradient(45deg, #27ae60, #2ecc71); /* Dégradé en 45° entre deux verts */
-  color: #fff;                         /* Texte en blanc */
-  border-radius: 4px;                  /* Bords arrondis */
-  margin: 20px 0;                      /* Marge verticale pour séparer de ce qui précède et suit */
-}
-.banniere h1 {
-  font-size: 2.5rem;                   /* Taille importante pour le titre */
-  margin-bottom: 20px;                 /* Marge inférieure pour espacer des paragraphes */
-}
-.banniere p {
-  font-size: 1.2rem;                   /* Taille confortable pour les paragraphes */
-  max-width: 800px;       /* Limite la largeur du paragraphe */
-  margin: 0 auto;         /* Centre le bloc horizontalement */
-  text-align: justify;    /* Justifie le texte pour que les lignes soient alignées à gauche et à droite */
-  hyphens: auto;          /* Active la césure pour une meilleure justification (optionnel) */
-  /* text-align-last: center;  Optionnel : centre la dernière ligne si nécessaire */
+    width: 100vw; /* Pleine largeur */
+    height: 80vh; /* Hauteur immersive */
+    display: flex; /* Organisation fluide */
+    flex-direction: column; /* Organisation verticale */
+    align-items: center; /* Centrage horizontal */
+    justify-content: center; /* Centrage vertical */
+    text-align: center; /* Alignement du texte */
+    background: #27ae60; /* Image de fond avec effet Parallax */
+    color: black; /* Texte blanc */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    margin-top: 10px; /*  Espace entre la navigation et la bannière */
 }
 
-/* ---------- Section Activités à venir (affichage retravaillé) ---------- */
-/* 🔹 Conteneur des activités */
+/* ✅ Animation du titre */
+.banniere-title {
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0; /* Disparaît au départ */
+    animation: fadeIn 1s ease-in forwards; /* Animation fluide */
+}
+
+/* ✅ Effet sur les phrases descriptives */
+.banniere-text p {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    opacity: 0; /* Disparaît au départ */
+    animation: fadeIn 1s ease-in forwards 0.5s; /* Animation progressive */
+    text-align: justify; /*pour les aligner*/
+}
+
+/* ✅ Bouton d’action stylisé */
+.banniere-button {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    color: green;
+    background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+/* ✅ Effet au survol du bouton */
+.banniere-button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1); /* Zoom fluide */
+}
+
+/* ✅ Animation d’apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✅ Responsive - Adaptation parfaite pour mobiles */
+@media (max-width: 768px) {
+    .banniere {
+        min-height: 50vh; /* ✅ Ajustement dynamique de la hauteur */
+        padding: 40px 20px; /* ✅ Espacement pour une meilleure lisibilité */
+    }
+
+    .banniere-title {
+        font-size: 2rem; /* ✅ Réduction pour un affichage plus harmonieux */
+    }
+
+    .banniere-text {
+        max-width: 90%; /* ✅ Éviter que le texte s'étale trop sur petits écrans */
+        text-align: justify; /* ✅ Justification pour meilleure lisibilité */
+        font-size: 1rem; /* ✅ Réduction pour une lecture fluide */
+    }
+}
+
+
+
+
+
+
+/* ---------- Section Activités à venir ---------- */
+/* ✅ Mise en page générale */
 .activities {
-  display: flex; /* ✅ Utilise Flexbox pour aligner les activités */
-  flex-direction: column; /* ✅ Organise les activités en colonne */
-  gap: 40px; /* ✅ Ajoute un espace de 40px entre chaque activité */
-  margin: 40px 0; /* ✅ Ajoute une marge pour bien séparer la section */
-  
+    max-width: 1000px; /* Largeur maximale */
+    margin: 40px auto; /* Centrage sur la page */
+    text-align: center; /* Alignement du texte */
 }
 
-/* 🔹 Style individuel des cartes d'activité */
-.activity {
-  text-align: center; /* ✅ Centre le texte de chaque activité */
-  padding: 25px; /* ✅ Ajoute un espace intérieur pour plus de lisibilité */
-  border-radius: 8px; /* ✅ Arrondit légèrement les bords pour un design plus moderne */
-  background: #f5f5f5; /* ✅ Couleur de fond gris clair pour un effet épuré */
-  transition: background-color 0.3s ease; /* ✅ Animation douce du changement de couleur */
-}
-
-/* 🔹 Effet au survol des cartes */
-.activity:hover {
-  background: #e0e0e0; /* ✅ Change la couleur de fond au survol */
-}
-
-/* 🔹 Style du titre "Nos Activités à venir" */
+/* ✅ Style du titre principal */
 .activities h1 {
-  font-size: 2.8rem; /* ✅ Augmente la taille pour une meilleure visibilité */
-  font-weight: bold; /* ✅ Rend le texte plus accrocheur */
-  text-align: center; /* ✅ Centre le titre */
-  color: #2c3e50; /* ✅ Change la couleur du texte en bleu profond au lieu du vert */
-  margin-bottom: 20px; /* ✅ Ajoute une marge en bas pour espacer du contenu */
-  position: relative; /* ✅ Permet d'ajouter un élément décoratif */
+    font-size: 2rem; /* Taille du texte */
+    color: #333; /* Couleur du texte */
+    margin-bottom: 20px; /* Espacement sous le titre */
 }
 
-/* 🔹 Effet de soulignement animé sous le titre */
-.activities h1::after {
-  content: ""; /* ✅ Crée un élément visuel */
-  display: block; /* ✅ Affiche le soulignement sous forme de bloc */
-  width: 80px; /* ✅ Définit la largeur initiale du soulignement */
-  height: 4px; /* ✅ Définit l'épaisseur de la ligne */
-  background: #e67e22; /* ✅ Couleur orange terre cuite pour le contraste */
-  margin: 10px auto 0; /* ✅ Centre la ligne horizontalement */
-  transition: width 0.3s ease; /* ✅ Ajoute une animation fluide */
+/* ✅ Style des activités sous forme de cartes */
+.activity {
+    display: flex; /* Alignement en ligne */
+    align-items: center; /* Alignement vertical */
+    background: #fff; /* Fond blanc */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Ombre pour effet moderne */
+    border-radius: 10px; /* Bordures arrondies */
+    margin-bottom: 20px; /* Espacement entre les cartes */
+    transition: transform 0.3s ease; /* Animation au survol */
 }
 
-/* 🔹 Effet d'agrandissement au survol du titre */
-.activities h1:hover::after {
-  width: 120px; /* ✅ Étire la ligne lorsqu'on survole le titre */
+/* ✅ Effet de zoom au survol */
+.activity:hover {
+    transform: scale(1.03); /* Zoom léger */
 }
 
-
-
-/* 🔹 Style des liens vers les inscriptions et détails */
-.event-details {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: #e67e22;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.event-details:hover {
-  background: #d35400;
-}
-
-
-
-
-/* Styles pour le bouton d'inscription */
-.inscription-button {
-    display: inline-block;            /* Pour se comporter comme un bouton */
-    background-color: #27ae60;          /* Couleur verte d'accent */
-    color: #fff;                      /* Texte en blanc */
-    padding: 10px 20px;               /* Espacement interne */
-    margin-top: 15px;                 /* Marge pour espacer du texte environnant */
-    text-decoration: none;            /* Aucun soulignement */
-    border-radius: 4px;               /* Légers bords arrondis */
-    transition: background-color 0.3s ease; /* Transition douce pour l'effet de survol */
-  }
-  
-  .inscription-button:hover {
-    background-color: #1e8a48;        /* Couleur un peu plus foncée au survol */
-  }
-
-
-  /* Styles pour la section des boutons de partage */
-.share-buttons {
-    margin-top: 15px; /* Espace au-dessus des boutons */
-  }
-  
-  .share-buttons a {
-    display: inline-block;     /* Affichage côte à côte */
-    margin-right: 10px;        /* Espace entre les boutons */
-    transition: transform 0.3s ease; /* Effet au survol */
-  }
-  
-  .share-buttons a:last-child {
-    margin-right: 0;
-  }
-  
-  .share-buttons img {
-    width: 32px; /* Taille des icônes */
-    height: auto;
-    vertical-align: middle;
-  }
-  
-  .share-buttons a:hover img {
-    transform: scale(1.1);
-  }
-  
-  
-
-
-/* Style pour les images dans chaque activité */
+/* ✅ Style des images */
 .activity img {
-  width: 100%;                         /* L'image occupe toute la largeur du conteneur */
-  max-width: 500px;                    /* Largeur maximale pour éviter un dépassement */
-  height: auto;                        /* Conserve les proportions originales */
-  margin-top: 20px;                    /* Marge supérieure pour espacer l'image du texte */
-  border-radius: 4px;                  /* Bords arrondis de l'image */
+    width: 220px; /* Largeur de l'image */
+    height: auto; /* Taille automatique */
+    border-radius: 10px 0 0 10px; /* Arrondi seulement à gauche */
 }
+
+/* ✅ Contenu des activités */
+.activity-info {
+    padding: 20px; /* Espacement interne */
+    flex: 1; /* Prend le reste de l'espace */
+    text-align: left; /* Alignement du texte */
+}
+
+/* ✅ Style du titre des activités */
+.activity-info h2 {
+    font-size: 1.5rem; /* Taille du texte */
+    color: #27ae60; /* Couleur verte */
+    margin-bottom: 10px; /* Espacement sous le titre */
+}
+
+/* ✅ Texte des activités */
+.activity-info p {
+    font-size: 1rem; /* Taille du texte */
+    color: #444; /* Couleur foncée */
+    margin: 5px 0; /* Espacement */
+}
+
+/* ✅ Effet sur le texte en attente */
+.details {
+    font-size: 1.1rem; /* Taille légèrement plus grande */
+    color: #d35400; /* Couleur orangée */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* ✅ Bouton d'inscription modernisé */
+.inscription-button {
+    display: inline-block; /* Affichage sous forme de bouton */
+    background: #27ae60; /* Couleur verte */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    margin-top: 10px; /* Espacement au-dessus */
+    text-decoration: none; /* Suppression du soulignement */
+    border-radius: 6px; /* Bordures arrondies */
+    font-size: 1rem; /* Taille du texte */
+    transition: background 0.3s ease; /* Animation */
+}
+
+/* ✅ Effet au survol du bouton */
+.inscription-button:hover {
+    background: #1e8a48; /* Assombri */
+    transform: scale(1.05); /* Effet de zoom */
+}
+
+/* ✅ Responsive : Ajustement pour mobiles */
+@media (max-width: 768px) {
+    .activity {
+        flex-direction: column; /* Passe les éléments en colonne */
+    }
+
+    .activity img {
+        width: 100%; /* Image prend toute la largeur */
+        border-radius: 10px 10px 0 0; /* Arrondi en haut */
+    }
+
+    .activity-info {
+        text-align: center; /* Centrage du texte */
+    }
+}
+
+
+
+
 
 /* ---------- Section Informations Générales ---------- */
-section {
-  display: flex;                       /* Disposition en flexbox */
-  flex-wrap: wrap;                     /* Permet aux colonnes de se repositionner sur petits écrans */
-  justify-content: space-between;      /* Répartit l'espace également entre colonnes */
-  margin: 40px 0;                      /* Marge verticale pour séparer la section */
-  gap: 20px;                           /* Espace entre chaque colonne */
-}
-section .col {
-  flex: 1 1 220px;                     /* Définit une largeur minimale de 220px par colonne */
-  background: #fff;                     /* Fond blanc pour chaque colonne */
-  padding: 15px 20px;                  /* Espacement interne des colonnes */
-  border-radius: 4px;                  /* Bords arrondis */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre pour l'aspect carte */
-}
-.center {
-  text-align: center;                  /* Centre le texte */
-  width: 100%;                         /* Occupe toute la largeur */
-  margin-bottom: 20px;                 /* Marge inférieure pour espacer du contenu suivant */
+/* ✅ Mise en page principale */
+#contacts {
+    width: 100%; /* Largeur maximale */
+    margin: 50px auto; /* Centrage sur la page */
+    text-align: center; /* Alignement du texte */
 }
 
-/* ---------- Réseaux sociaux ---------- */
+/* ✅ Titre principal */
+#contacts h1 {
+    font-size: 2rem; /* Taille du texte */
+    color: #27ae60; /* Couleur verte pour un effet naturel et harmonieux */
+    margin-bottom: 30px; /* Espacement sous le titre */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* ✅ Conteneur des cartes */
+.info-container {
+    display: flex; /* Permet l'organisation horizontale */
+    flex-wrap: wrap; /* Gère le retour à la ligne sur petits écrans */
+    justify-content: center; /* Centrage des éléments */
+    gap: 20px; /* Espacement entre les colonnes */
+}
+
+/* ✅ Style des cartes */
+.info-card {
+    width: 300px; /* Largeur uniforme des blocs */
+    background: #fff; /* Fond blanc pour un design propre */
+    padding: 20px; /* Espacement interne */
+    border-radius: 10px; /* Bordures arrondies pour un effet moderne */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Ombre discrète */
+    text-align: left; /* Alignement du texte */
+    transition: transform 0.3s ease-in-out; /* Animation fluide */
+}
+
+/* ✅ Effet d'agrandissement au survol */
+.info-card:hover {
+    transform: scale(1.05); /* Zoom léger */
+}
+
+/* ✅ Style des titres */
+.info-card h3 {
+    font-size: 1.3rem; /* Taille du texte */
+    color: #333; /* Couleur sombre pour meilleure lisibilité */
+    margin-bottom: 10px; /* Espacement sous le titre */
+}
+
+/* ✅ Style des paragraphes */
+.info-card p {
+    font-size: 1rem; /* Taille agréable */
+    color: #555; /* Couleur foncée mais douce */
+    margin-bottom: 5px; /* Espacement entre les lignes */
+}
+
+/* ✅ Liens interactifs */
+.contact-link, .email-link {
+    color: #27ae60; /* Couleur verte pour visibilité */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold; /* Met en valeur */
+}
+
+.contact-link:hover, .email-link:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+/* ✅ Numéro bancaire mis en évidence */
+.bank-details {
+    font-size: 1.2rem; /* Texte plus visible */
+    font-weight: bold; /* En gras */
+    color: #d35400; /* Couleur orangée */
+}
+
+/* ✅ Icônes des réseaux sociaux */
 .social-icons {
-  margin-top: 10px;                    /* Marge en haut pour espacer du contenu precedent */
+    display: flex; /* Alignement horizontal */
+    justify-content: center; /* Centrage */
+    gap: 15px; /* Espacement entre les icônes */
+    margin-top: 10px; /* Espacement au-dessus */
 }
-.social-icons a img {
-  width: 32px;                         /* Définition d'une largeur fixe pour chaque icône */
-  height: auto;                        /* Maintient les proportions originales */
-  margin-right: 10px;                  /* Espace entre les icônes */
-  transition: transform 0.3s ease;     /* Transition pour l'effet de zoom */
+
+/* ✅ Taille et animation des icônes */
+.social-icons img {
+    width: 30px; /* Taille uniforme */
+    transition: transform 0.3s ease-in-out; /* Animation fluide */
 }
+
+/* ✅ Effet au survol des icônes */
 .social-icons a:hover img {
-  transform: scale(1.1);               /* Agrandissement léger lorsque le curseur survole l’icône */
+    transform: scale(1.2); /* Zoom au survol */
 }
 
-/* ---------- Footer ---------- */
+/* ✅ Responsive : Adaptation pour mobiles */
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column; /* Passe les éléments en colonne */
+        align-items: center; /* Centrage */
+    }
+
+    .info-card {
+        width: 90%; /* Prend toute la largeur */
+    }
+}
+
+
+
+
+/* ✅ Footer - Style élégant */
 footer {
-  background-color: #333;              /* Fond sombre pour le pied de page */
-  color: #fff;                         /* Texte en blanc pour le contraste */
-  text-align: center;                  /* Texte centré */
-  padding: 20px 10px;                  /* Padding interne */
-  border-radius: 4px;                  /* Bords arrondis */
-  margin-top: 40px;                    /* Marge supérieure pour séparer du contenu principal */
-}
-footer a {
-  color: #27ae60;                     /* Liens en vert pour rester dans l'identité graphique */
-  text-decoration: none;              /* Supprime le soulignement sur les liens */
+    width: 100vw; /* Pleine largeur */
+    padding: 20px 0; /* Espacement haut et bas */
+    background: #222; /* Couleur sombre pour contraste */
+    color: white; /* Texte blanc */
+    text-align: center; /* Centrage du texte */
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.2); /* Ombre pour séparation */
 }
 
-/* ---------- Quelques utilitaires ---------- */
-.clear {
-  clear: both;                        /* Efface les flottants */
-}
-main > div {
-  margin-bottom: 40px;                /* Marge pour espacer les blocs de contenu dans le main */
+/* ✅ Conteneur du footer */
+.footer-container {
+    max-width: 1200px; /* Largeur limitée pour meilleure lisibilité */
+    margin: auto; /* Centrage du contenu */
 }
 
+/* ✅ Texte du footer */
+.footer-text {
+    font-size: 1rem; /* Taille confortable */
+}
 
+/* ✅ Lien d'email */
+.footer-text a {
+    color: #27ae60; /* Couleur verte pour lisibilité */
+    text-decoration: none; /* Suppression du soulignement */
+    font-weight: bold; /* Mise en valeur */
+}
 
-/* ---------- Section À Propos ---------- */
-#a-propos {
-    padding: 40px;                     /* Espacement interne autour de la section */
-    background: #fff;                  /* Fond blanc pour mettre en valeur le contenu */
-    border-radius: 4px;                /* Légers arrondis */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre discrète pour la profondeur */
-    margin: 20px auto;                 /* Centrage horizontal avec marge verticale */
-    max-width: 1200px;                 /* Largeur maximale pour un affichage optimal */
-  }
-  
-  #a-propos h1 {
-    text-align: center;                /* Centrage du titre */
-    color: #27ae60;                    /* Couleur d'accent en accord avec le logo */
-    margin-bottom: 20px;               /* Espace en dessous du titre */
-  }
-  
-  /* Conteneur de la photo et du texte avec disposition flexible */
-  .a-propos-content {
-    display: flex;                     /* Affichage en flexbox */
-    flex-wrap: wrap;                   /* Permet le passage à la ligne sur petits écrans */
-    align-items: center;               /* Centre verticalement les éléments */
-    gap: 20px;                         /* Espace entre la photo et le texte */
-    justify-content: center;           /* Centre les éléments horizontalement */
-  }
-  
-  .a-propos-content img {
-    max-width: 400px;                  /* Largeur maximale de la photo */
-    width: 100%;                       /* L'image occupe la totalité de l'espace disponible */
-    border-radius: 4px;                /* Arrondir légèrement les coins de l'image */
-  }
-  
-  .a-propos-text {
-    max-width: 600px;                  /* Largeur maximale pour le bloc texte afin de maintenir une bonne lisibilité */
-    font-size: 1rem;                   /* Taille de police confortable */
-    line-height: 1.6;                  /* Hauteur de ligne pour faciliter la lecture */
-  }
+.footer-text a:hover {
+    text-decoration: underline; /* Effet au survol */
+}
+
+/* ✅ Icônes des réseaux sociaux */
+.footer-social {
+    margin-top: 10px; /* Espacement au-dessus */
+    display: flex; /* Alignement horizontal */
+    justify-content: center; /* Centrage */
+    gap: 15px; /* Espacement entre les icônes */
+}
+
+/* ✅ Taille et effet des icônes */
+.footer-social img {
+    width: 30px; /* Taille uniforme */
+    transition: transform 0.3s ease-in-out; /* Animation fluide */
+}
+
+/* ✅ Effet au survol des icônes */
+.footer-social a:hover img {
+    transform: scale(1.2); /* Zoom au survol */
+}
+
   
 
 

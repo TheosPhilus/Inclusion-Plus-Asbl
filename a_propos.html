@@ -18,37 +18,85 @@
     }
   </style> 
 </head>
+
+
+<style>
+  /* ---------- Section À Propos ---------- */
+#a-propos {
+    padding: 40px;                     /* Espacement interne autour de la section */
+    background: #fff;                  /* Fond blanc pour mettre en valeur le contenu */
+    border-radius: 4px;                /* Légers arrondis */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre discrète pour la profondeur */
+    margin: 20px auto;                 /* Centrage horizontal avec marge verticale */
+    max-width: 1200px;                 /* Largeur maximale pour un affichage optimal */
+  }
+  
+  #a-propos h1 {
+    text-align: center;                /* Centrage du titre */
+    color: #27ae60;                    /* Couleur d'accent en accord avec le logo */
+    margin-bottom: 20px;               /* Espace en dessous du titre */
+  }
+  
+  /* Conteneur de la photo et du texte avec disposition flexible */
+  .a-propos-content {
+    display: flex;                     /* Affichage en flexbox */
+    flex-wrap: wrap;                   /* Permet le passage à la ligne sur petits écrans */
+    align-items: center;               /* Centre verticalement les éléments */
+    gap: 20px;                         /* Espace entre la photo et le texte */
+    justify-content: center;           /* Centre les éléments horizontalement */
+  }
+  
+  .a-propos-content img {
+    max-width: 400px;                  /* Largeur maximale de la photo */
+    width: 100%;                       /* L'image occupe la totalité de l'espace disponible */
+    border-radius: 4px;                /* Arrondir légèrement les coins de l'image */
+  }
+  
+  .a-propos-text {
+    max-width: 600px;                  /* Largeur maximale pour le bloc texte afin de maintenir une bonne lisibilité */
+    font-size: 1rem;                   /* Taille de police confortable */
+    line-height: 1.6;                  /* Hauteur de ligne pour faciliter la lecture */
+  }
+</style>
+
+
 <body>
   <main>
     <!-- En-tête identique à celui des autres pages -->
-    <header>
-      <!-- Logo de l’ASBL -->
-      <h2>
-        <a class="imglogo" href="index.html">
-          <img src="logo.jpg" alt="Logo Inclusion Plus">
-        </a>
-      </h2>
-      <!-- Bouton de don -->
-      <a href="don.html" class="don-button">Faire un Don</a>
-      <!-- Bouton Devenir membre -->
-      <a href="devenir_membre.html" class="member-button">Devenir membre</a>
-      <!-- Menu de navigation -->
-      <div class="menu-container">
-        <input type="checkbox" id="menu-checkbox">
-        <label for="menu-checkbox" class="menu-toggle">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="menu-label">MENU</div>
-        </label>
-        <div class="menu-list">
-            <a href="a_propos.html">Apropos</a>
-            <a href="index.html#actualites">Actualités</a>
-          <a href="index.html#projets">Projets à venir</a>
-          <a href="index.html#contacts">Contacts</a>
-        </div>
-      </div>
-    </header>
+    <!-- ============== Header ============== -->
+<header class="header-alt">
+  <!-- Conteneur principal pour aligner les éléments du header -->
+  <div class="header-container">
+    
+    <!-- ------------ Partie Gauche : Logo ------------ -->
+    <div class="logo-container">
+      <!-- Le logo renvoie vers la page d'accueil -->
+      <a href="index.html">
+        <img src="logo.jpg" alt="Logo Inclusion Plus" class="logo-alt">
+      </a>
+    </div>
+    
+    <!-- ------------ Partie Centrale : Navigation ------------ -->
+    <nav class="nav-container">
+      <!-- Chaque lien de navigation possède une animation underline au survol -->
+      
+      <a href="a_propos.html" class="nav-link">A propos</a>
+      <a href="index.html#actualites" class="nav-link">Actualités</a>
+      <a href="index.html#projets" class="nav-link">Projets</a>
+      <a href="index.html#contacts" class="nav-link">Contacts</a>
+    </nav>
+    
+    <!-- ------------ Partie Droite : Boutons d'Action ------------ -->
+    <div class="cta-buttons">
+      <!-- Bouton pour faire un don -->
+      <a href="don.html" class="don-button-alt">Faire un Don</a>
+      <!-- Bouton pour devenir membre -->
+      <a href="devenir_membre.html" class="member-button-alt">Devenir membre</a>
+    </div>
+    
+  </div>
+</header>
+<!-- ============== Fin du Header ============== -->
     
     <!-- Section À Propos -->
     <section id="a-propos">
