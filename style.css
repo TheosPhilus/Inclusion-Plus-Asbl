@@ -24,6 +24,12 @@ body {
   height: 100%;                        /* Le body occupe toute la hauteur */
 }
 
+
+/*Empêcher le scroll horizontal*/
+html, body {
+  overflow-x: hidden;
+}
+
 /* ---------- Conteneur principal en affichage plein écran ---------- */
 main {
   width: 100%;                         /* Le main occupe 100% de la largeur disponible */
@@ -40,7 +46,7 @@ main {
 .header-alt {
   position: sticky;                      /* Le header reste collé en haut lors du scroll */
   top: 0;                                /* Positionné en haut */
-  width: 100%;                           /* Pleine largeur */
+  width: 100vw;;                           /* Pleine largeur */
   background: rgba(255, 255, 255, 0.8);    /* Fond semi-transparent pour l'effet glassmorphism */
   backdrop-filter: blur(10px);           /* Flou en arrière-plan pour l'effet glass */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
@@ -51,7 +57,7 @@ main {
 /* ------------ Conteneur interne du header ------------ */
 .header-container {
   width: 100%;                     /* Largeur maximale pour le contenu */
-  margin: 5px auto;                        /* Centre le contenu horizontalement */
+  margin: 10px auto;                        /* Centre le contenu horizontalement */
   padding: 10px 20px;                    /* Espacement intérieur */
   display: flex;                         /* Utilisation de Flexbox pour aligner les éléments */
   align-items: center;                   /* Alignement vertical centré */
@@ -421,6 +427,37 @@ main {
     }
 }
 
+/* ✅ Style de la modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ✅ Image agrandie */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* ✅ Bouton de fermeture */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
 
 
 
@@ -539,6 +576,7 @@ footer {
     color: white; /* Texte blanc */
     text-align: center; /* Centrage du texte */
     box-shadow: 0 -4px 12px rgba(0,0,0,0.2); /* Ombre pour séparation */
+    height: 550px;
 }
 
 /* ✅ Conteneur du footer */
@@ -583,6 +621,117 @@ footer {
 }
 
   
+
+/* -----------------------------------------------------------------------------
+   Fichier : style.css
+   Description : Styles personnalisés pour le formulaire Mailchimp
+   pour un rendu élégant, compact et moderne.
+----------------------------------------------------------------------------- */
+
+/* Style du conteneur extérieur */
+.mailchimp-shell {
+  /* Pas de style particulier ici, à modifier si besoin */
+}
+
+/* Style du conteneur principal du formulaire */
+.mailchimp-form {
+  background: #ffffff;                   /* Fond blanc épuré */
+  max-width: 600px;                       /* Format compact */
+  margin: 20px auto;                      /* Centré horizontalement avec marge verticale */
+  padding: 20px;                          /* Espace intérieur généreux */
+  border-radius: 8px;                     /* Coins arrondis */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Style du titre du formulaire */
+.form-title {
+  font-size: 1.8em;
+  color: #333333;                         /* Gris foncé élégant */
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Style du texte indiquant les champs obligatoires */
+.required-text {
+  font-size: 0.8em;
+  color: #999999;                         /* Couleur sobre */
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Style du groupe du champ email */
+.email-field {
+  margin-bottom: 15px;
+}
+
+/* Style du label */
+.field-label {
+  display: block;
+  font-size: 0.9em;
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+/* Style de l'input email */
+.field-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Conteneur pour les messages de réponse */
+.response-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Style par défaut pour les messages de réponse */
+.response {
+  font-size: 0.9em;
+}
+
+/* Style du conteneur du bouton */
+.button-container {
+  margin-top: 15px;
+}
+
+/* Style du bouton de soumission */
+.submit-button {
+  display: block;
+  width: 100%;
+  background-color: #007bff;             /* Bleu moderne */
+  color: #ffffff;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Masquage du logo Mailchimp */
+.credit-logo, 
+.refferal_badge,
+a[title*="Mailchimp"] {
+  display: none !important;
+}
+
+/* Optionnel : styles de réponse en cas de succès/erreur */
+.success-response {
+  color: #28a745;                        /* Vert pour le succès */
+}
+.error-response {
+  color: #dc3545;                        /* Rouge pour l'erreur */
+}
+
 
 
 
