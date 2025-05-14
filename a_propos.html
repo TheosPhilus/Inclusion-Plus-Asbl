@@ -62,41 +62,13 @@
 
 <body>
   <main>
-    <!-- En-tête identique à celui des autres pages -->
-    <!-- ============== Header ============== -->
-<header class="header-alt">
-  <!-- Conteneur principal pour aligner les éléments du header -->
-  <div class="header-container">
     
-    <!-- ------------ Partie Gauche : Logo ------------ -->
-    <div class="logo-container">
-      <!-- Le logo renvoie vers la page d'accueil -->
-      <a href="index.html">
-        <img src="logo.jpg" alt="Logo Inclusion Plus" class="logo-alt">
-      </a>
-    </div>
-    
-    <!-- ------------ Partie Centrale : Navigation ------------ -->
-    <nav class="nav-container">
-      <!-- Chaque lien de navigation possède une animation underline au survol -->
-      
-      <a href="a_propos.html" class="nav-link">A propos</a>
-      <a href="index.html#actualites" class="nav-link">Actualités</a>
-      <a href="index.html#projets" class="nav-link">Projets</a>
-      <a href="index.html#contacts" class="nav-link">Contacts</a>
-    </nav>
-    
-    <!-- ------------ Partie Droite : Boutons d'Action ------------ -->
-    <div class="cta-buttons">
-      <!-- Bouton pour faire un don -->
-      <a href="don.html" class="don-button-alt">Faire un Don</a>
-      <!-- Bouton pour devenir membre -->
-      <a href="devenir_membre.html" class="member-button-alt">Devenir membre</a>
-    </div>
-    
-  </div>
-</header>
-<!-- ============== Fin du Header ============== -->
+    <!--En-tête-->
+   <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.body.insertAdjacentHTML('afterbegin', data));
+  </script>
     
     <!-- Section À Propos -->
     <section id="a-propos">

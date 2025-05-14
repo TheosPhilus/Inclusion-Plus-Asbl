@@ -1,27 +1,41 @@
 <!-- header.html -->
+ <!-- ============== Header ============== -->
 <header class="header-alt">
+  <!-- Conteneur principal pour aligner les éléments du header -->
   <div class="header-container">
     
-    <!-- Partie gauche : Logo -->
+    <!-- ------------ Partie Gauche : Logo ------------ -->
     <div class="logo-container">
+      <!-- Le logo renvoie vers la page d'accueil -->
       <a href="index.html">
         <img src="logo.jpg" alt="Logo Inclusion Plus" class="logo-alt">
       </a>
     </div>
     
-    <!-- Partie centrale : Navigation -->
+    <!-- ------------ Partie Centrale : Navigation ------------ -->
     <nav class="nav-container">
-      <a href="a_propos.html" class="nav-link">A propos</a>
-      <a href="#" class="nav-link">Actualités</a>
-      <a href="#projets" class="nav-link">Projets</a>
-      <a href="#contacts" class="nav-link">Contacts</a>
+
+         <!-- Bouton Menu Burger -->
+        <div class="menu-toggle">
+          <span>&#9776; Menu</span>
+        </div>
+        <!-- Chaque lien de navigation possède une animation underline au survol -->
+       <div class="menu-items">
+        <a href="a_propos.html" class="nav-link">A propos</a>
+      <a href="index.html#actualites" class="nav-link">Actualités</a>
+      <a href="index.html#projets" class="nav-link">Projets</a>
+      <a href="index.html#contacts" class="nav-link">Contacts</a>
+       </div>
     </nav>
     
-    <!-- Partie droite : Boutons d'action -->
+    <!-- ------------ Partie Droite : Boutons d'Action ------------ -->
     <div class="cta-buttons">
+      <!-- Bouton pour faire un don -->
       <a href="don.html" class="don-button-alt">Faire un Don</a>
+      <!-- Bouton pour devenir membre -->
       <a href="devenir_membre.html" class="member-button-alt">Devenir membre</a>
     </div>
     
   </div>
 </header>
+<!-- ============== Fin du Header ============== -->

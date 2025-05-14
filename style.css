@@ -46,7 +46,7 @@ main {
 .header-alt {
   position: sticky;                      /* Le header reste collé en haut lors du scroll */
   top: 0;                                /* Positionné en haut */
-  width: 100vw;;                           /* Pleine largeur */
+  width: 100%;;                           /* Pleine largeur */
   background: rgba(255, 255, 255, 0.8);    /* Fond semi-transparent pour l'effet glassmorphism */
   backdrop-filter: blur(10px);           /* Flou en arrière-plan pour l'effet glass */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
@@ -76,14 +76,20 @@ main {
 /* ------------ Partie Centrale : Navigation ------------ */
 .nav-container {
   display: flex;                         /* Affichage en ligne */
+}
+
+.menu-items{
+  display: flex;                         /* Affichage en ligne */
   gap: 20px;                             /* Espacement entre les liens */
 }
+
 .nav-link {
   text-decoration: none;                 /* Suppression du soulignement */
   color: #333;                           /* Couleur du texte */
   font-size: 1rem;                       /* Taille de la police */
   position: relative;                    /* Nécessaire pour positionner l'underline animé */
   transition: color 0.3s ease;           /* Transition pour la couleur au survol */
+  padding: 12px 0; /* Espacement vertical entre chaque lien */
 }
 
 /* Animation underline pour chaque lien */
@@ -141,6 +147,43 @@ main {
     gap: 10px;
   }
 }
+
+.menu-toggle {
+  display: none; /* Masqué par défaut sur desktop */
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 10px;
+  background: #27ae60;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Sur mobile, on affiche le bouton mais on cache les liens */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Bouton visible sur mobile */
+  }
+
+  .menu-items {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 10px;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.menu-items.show {
+  display: flex;
+  max-height: 500px;
+  opacity: 1;
+}
+
+}
+
 
 
 
@@ -242,7 +285,7 @@ main {
 
 /* ✅ Bannière avec effet Parallax */
 .banniere {
-    width: 100vw; /* Pleine largeur */
+    width: 100%; /* Pleine largeur */
     height: 80vh; /* Hauteur immersive */
     display: flex; /* Organisation fluide */
     flex-direction: column; /* Organisation verticale */
@@ -311,13 +354,13 @@ main {
     }
 
     .banniere-title {
-        font-size: 2rem; /* ✅ Réduction pour un affichage plus harmonieux */
+        font-size: 1.5rem; /* ✅ Réduction pour un affichage plus harmonieux */
     }
 
     .banniere-text {
-        max-width: 90%; /* ✅ Éviter que le texte s'étale trop sur petits écrans */
+        max-width: 100%; /* ✅ Éviter que le texte s'étale trop sur petits écrans */
         text-align: justify; /* ✅ Justification pour meilleure lisibilité */
-        font-size: 1rem; /* ✅ Réduction pour une lecture fluide */
+        font-size: 0.2rem; /* ✅ Réduction pour une lecture fluide */
     }
 }
 
@@ -570,7 +613,7 @@ main {
 
 /* ✅ Footer - Style élégant */
 footer {
-    width: 100vw; /* Pleine largeur */
+    width: 100%; /* Pleine largeur */
     padding: 20px 0; /* Espacement haut et bas */
     background: #222; /* Couleur sombre pour contraste */
     color: white; /* Texte blanc */

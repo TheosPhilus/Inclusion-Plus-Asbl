@@ -114,11 +114,18 @@
     
     <!-- ------------ Partie Centrale : Navigation ------------ -->
     <nav class="nav-container">
-      <!-- Chaque lien de navigation possède une animation underline au survol -->
-      <a href="a_propos.html" class="nav-link">A propos</a>
-      <a href="#" class="nav-link">Actualités</a>
-      <a href="#projets" class="nav-link">Projets</a>
-      <a href="#contacts" class="nav-link">Contacts</a>
+
+         <!-- Bouton Menu Burger -->
+        <div class="menu-toggle">
+          <span>&#9776; Menu</span>
+        </div>
+        <!-- Chaque lien de navigation possède une animation underline au survol -->
+       <div class="menu-items">
+        <a href="a_propos.html" class="nav-link">A propos</a>
+        <a href="#" class="nav-link">Actualités</a>
+        <a href="#projets" class="nav-link">Projets</a>
+        <a href="#contacts" class="nav-link">Contacts</a>
+       </div>
     </nav>
     
     <!-- ------------ Partie Droite : Boutons d'Action ------------ -->
@@ -183,24 +190,26 @@
                 </div>
             </div>
 
+            
             <!-- 🔥 Activité 3 - Défi Bueren -->
-            <div class="activity">
-                <img src="Défi.jpg" alt="Défi Bueren" class="activity-img" onclick="openModal(this)"> <!-- Image de l'événement -->
-                <div class="activity-info">
-                    <h2>Défi Bueren - Ensemble pour la cohésion</h2> <!-- Titre de l'événement -->
-                    <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
-                </div>
-            </div>
+            <!-- <div class="activity"> -->
+                <!-- <img src="Défi.jpg" alt="Défi Bueren" class="activity-img" onclick="openModal(this)"> <!-- Image de l'événement -->
+                <!-- <div class="activity-info"> -->
+                    <!-- <h2>Défi Bueren - Ensemble pour la cohésion</h2> Titre de l'événement -->
+                    <!-- <p class="details">📌 Détails bientôt disponibles</p> Indication de mise à jour -->
+                <!-- </div> -->
+            <!-- </div> -->
 
             <!-- 🔥 Activité 4 - Journée sans voiture -->
-            <div class="activity">
+            <!-- <div class="activity">
                 <img src="journée_sans_voiture.jpg" alt="Journée sans voiture" class="activity-img" onclick="openModal(this)"> <!-- Image de l'événement -->
-                <div class="activity-info">
+                <!-- <div class="activity-info">
                     <h2>Journée sans voiture à Seraing</h2> <!-- Titre de l'événement -->
-                    <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
-                </div>
-            </div>
+                    <!-- <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
+                <!-- </div>
+            </div> --> --> 
         </div>
+        
 
         <!-- ✅ Fenêtre modale pour agrandir les images -->
         <div id="imageModal" class="modal">
@@ -368,6 +377,18 @@
         document.getElementById('menu-checkbox').checked = false;
       });
     });
+
+    document.querySelector(".menu-toggle").addEventListener("click", function() {
+  document.querySelector(".nav-container").classList.toggle("show");
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector(".menu-toggle").addEventListener("click", function() {
+    document.querySelector(".menu-items").classList.toggle("show");
+  });
+});
+
  
     
     function openModal(image) {
