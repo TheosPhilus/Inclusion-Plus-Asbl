@@ -187,9 +187,6 @@ main {
 
 
 
-
-
-
 /* ---------- Bouton de don ---------- */
 .don-button {
   background-color: #27ae60;           /* Fond vert en accord avec le logo */
@@ -672,9 +669,7 @@ footer {
 ----------------------------------------------------------------------------- */
 
 /* Style du conteneur extérieur */
-.mailchimp-shell {
-  /* Pas de style particulier ici, à modifier si besoin */
-}
+
 
 /* Style du conteneur principal du formulaire */
 .mailchimp-form {

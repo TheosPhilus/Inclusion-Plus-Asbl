@@ -98,11 +98,11 @@
 </head>
 <body>
 
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.body.insertAdjacentHTML('afterbegin', data));
-  </script>
+ <!--En-tête-->
+ <!-- Conteneur où le header sera injecté -->
+        <div id="header-container"></div>
+        <!-- Inclusion du script qui va injecter le header -->
+        <script src="../scripts/header.js"></script>
 
   <h1>Inscription à l'activité du 31 mai</h1>
   
@@ -170,5 +170,10 @@
       }, 500); // 500ms correspondent à la durée de l'animation
     });
   </script>
+
+  <!-- 🔹 Footer élégant -->
+<!-- Footer identique à celui des autres pages -->
+    <div id="footer-container"></div>
+    <script src="../scripts/footer.js"></script>
 </body>
 </html>

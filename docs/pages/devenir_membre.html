@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Devenir membre</title>
   <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS externe -->
+  
 </head>
 
  <style>
@@ -111,11 +112,11 @@
 </head>
 <body>
 
-   <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => document.body.insertAdjacentHTML('afterbegin', data));
-  </script>
+   <!--En-tête-->
+ <!-- Conteneur où le header sera injecté -->
+        <div id="header-container"></div>
+        <!-- Inclusion du script qui va injecter le header -->
+        <script src="../scripts/header.js"></script>
 
 <h1>Devenir membre de Inclusion Plus Asbl</h1>
 
@@ -170,7 +171,7 @@
         </label>
         <label>
           <input type="radio" id="non-travailleur" name="cotisation" value="35€" required>
-          Non-travailleur (35€)
+          Non-travailleur (25€)
         </label>
       </div>
     </div>
@@ -251,9 +252,10 @@
 </script>
 
 
+<!-- 🔹 Footer élégant -->
 <!-- Footer identique à celui des autres pages -->
     <div id="footer-container"></div>
-    <script src="footer.js"></script>
+    <script src="../scripts/footer.js"></script>
 
 
 </body>
