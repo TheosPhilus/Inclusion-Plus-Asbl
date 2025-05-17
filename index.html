@@ -51,7 +51,7 @@
     <!-- Ajout de mots-clés clairs et descriptifs dans le titre -->
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">        
@@ -108,7 +108,7 @@
     <div class="logo-container">
       <!-- Le logo renvoie vers la page d'accueil -->
       <a href="index.html">
-        <img src="../images/logo.jpg" alt="Logo Inclusion Plus" class="logo-alt">
+        <img src="logo.jpg" alt="Logo Inclusion Plus" class="logo-alt">
       </a>
     </div>
     
@@ -168,7 +168,7 @@
 
             <!-- 🔥 Activité 1 - BBQ du 31 mai -->
             <div class="activity"> <!-- Conteneur de l'activité -->
-                <img src="../images/mai.jpg" alt="BBQ de mai" class="activity-img" onclick="openModal(this)"> <!-- Image associée à l'activité -->
+                <img src="mai.jpg" alt="BBQ de mai" class="activity-img" onclick="openModal(this)"> <!-- Image associée à l'activité -->
                 <div class="activity-info"> <!-- Conteneur texte de l'activité -->
                     <h2>BBQ le 31 mai 2025</h2> <!-- Titre de l'événement -->
                     <p><strong>📍 Lieu :</strong> Place Cardinal Mercier 20, Ougrée 4102</p> <!-- Adresse -->
@@ -183,7 +183,7 @@
 
             <!-- 🔥 Activité 2 - Valorisation des ASBL -->
             <div class="activity">
-                <img src="../images/septembre.jpg" alt="Valorisation ASBL" class="activity-img" onclick="openModal(this)"> <!-- Image de l'événement -->
+                <img src="septembre.jpg" alt="Valorisation ASBL" class="activity-img" onclick="openModal(this)"> <!-- Image de l'événement -->
                 <div class="activity-info">
                     <h2>Valorisation du travail des ASBL - 25 Octobre 2025</h2> <!-- Titre de l'événement -->
                     <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
@@ -207,7 +207,7 @@
                     <h2>Journée sans voiture à Seraing</h2> <!-- Titre de l'événement -->
                     <!-- <p class="details">📌 Détails bientôt disponibles</p> <!-- Indication de mise à jour -->
                 <!-- </div>
-            </div> -->
+            </div> --> 
         </div>
         
 
@@ -260,16 +260,16 @@
             <p>Rejoignez-nous sur :</p> <!-- Texte pour inciter à suivre -->
             <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=61571333023481" target="_blank">
-                    <img src="../images/facebook.png" alt="Facebook"> <!-- Icône Facebook -->
+                    <img src="facebook.png" alt="Facebook"> <!-- Icône Facebook -->
                 </a>
                 <a href="https://www.instagram.com/yourprofile" target="_blank">
-                    <img src="../images/instagram.png" alt="Instagram"> <!-- Icône Instagram -->
+                    <img src="instagram.png" alt="Instagram"> <!-- Icône Instagram -->
                 </a>
                 <a href="https://www.tiktok.com/@inclusionplusasbl" target="_blank">
-                    <img src="../images/tik-tok.png" alt="TikTok"> <!-- Icône TikTok -->
+                    <img src="tik-tok.png" alt="TikTok"> <!-- Icône TikTok -->
                 </a>
                 <a href="https://wa.me/32487842412" target="_blank">
-                    <img src="../images/whatsapp.png" alt="WhatsApp"> <!-- Icône WhatsApp -->
+                    <img src="whatsapp.png" alt="WhatsApp"> <!-- Icône WhatsApp -->
                 </a>
             </div>
         </div>
@@ -277,9 +277,95 @@
 </section>
 
 <!-- 🔹 Footer élégant -->
-<!-- Footer identique à celui des autres pages -->
-    <div id="footer-container"></div>
-    <script src="../scripts/footer.js"></script>
+<footer>
+    <div class="footer-container">
+        <p class="footer-text">
+            &copy; Inclusion Plus Asbl - Contactez-nous à l'adresse suivante 
+            <a href="mailto:asblinclusionplus@gmail.com">asblinclusionplus@gmail.com</a>
+        </p>
+        
+        <!-- ✅ Icônes de réseaux sociaux -->
+        <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61571333023481" target="_blank">
+                <img src="facebook.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com/@inclusionplusasbl" target="_blank">
+                <img src="tik-tok.png" alt="TikTok">
+            </a>
+            <a href="https://wa.me/32487842412" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp">
+            </a>
+        </div>
+
+
+         <!-- Section Newsletter -->
+    <div id="mc_embed_shell" class="mailchimp-shell">
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+  <!-- Le bloc de style inline original a été retiré pour privilégier le CSS externe -->
+  <div id="mc_embed_signup" class="mailchimp-form">
+    <form action="https://github.us3.list-manage.com/subscribe/post?u=014c66f4d4622b1ca854d818d&amp;id=beb725570f&amp;f_id=009bbae3f0" 
+          method="post" 
+          id="mc-embedded-subscribe-form" 
+          name="mc-embedded-subscribe-form" 
+          class="validate" 
+          target="_blank">
+      <div id="mc_embed_signup_scroll" class="form-scroll">
+        <h2 class="form-title">Abonnez-vous à notre Newsletter</h2>
+        <div class="indicates-required required-text">
+          <span class="asterisk">*</span> indique "obligatoire"
+        </div>
+        <div class="mc-field-group email-field">
+          <label for="mce-EMAIL" class="field-label">Adresse e-mail <span class="asterisk">*</span></label>
+          <input type="email" name="EMAIL" class="required email field-input" id="mce-EMAIL" required="" value="">
+        </div>
+        <div id="mce-responses" class="clear foot response-container">
+          <div class="response error-response" id="mce-error-response" style="display: none;"></div>
+          <div class="response success-response" id="mce-success-response" style="display: none;"></div>
+        </div>
+        <div aria-hidden="true" class="hidden-field" style="position: absolute; left: -5000px;">
+          <!-- Champ anti-spam, à laisser en place -->
+          <input type="text" name="b_014c66f4d4622b1ca854d818d_beb725570f" tabindex="-1" value="">
+        </div>
+        <div class="optionalParent">
+          <div class="clear foot button-container">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button submit-button" value="Subscribe">
+            <p class="mailchimp-credit" style="margin: 0px auto;">
+              <a href="http://eepurl.com/jexdAc" title="Avec Mailchimp, les campagnes de marketing par e-mail sont un jeu d'enfant">
+                <span class="credit-logo" style="display: inline-block; background-color: transparent; border-radius: 4px;">
+                  <img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" 
+                       alt="Intuit&nbsp;Mailchimp" 
+                       style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;">
+                </span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script type="text/javascript">
+    (function($) {
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      fnames[0]='EMAIL';         ftypes[0]='email';
+      fnames[1]='FNAME';         ftypes[1]='text';
+      fnames[2]='LNAME';         ftypes[2]='text';
+      fnames[3]='ADDRESS';       ftypes[3]='address';
+      fnames[4]='PHONE';         ftypes[4]='phone';
+      fnames[5]='BIRTHDAY';      ftypes[5]='birthday';
+      fnames[6]='COMPANY';       ftypes[6]='text';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+</div>
+
+    
+    </div>
+</footer>
 
 
     </main>

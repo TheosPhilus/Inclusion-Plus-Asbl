@@ -6,11 +6,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!--En-tête-->
- <!-- Conteneur où le header sera injecté -->
-        <div id="header-container"></div>
-        <!-- Inclusion du script qui va injecter le header -->
-        <script src="../scripts/header.js"></script>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.body.insertAdjacentHTML('afterbegin', data));
+  </script>
   
   <main>
     <h1>Faire un Don</h1>
@@ -23,7 +23,7 @@
 
   <!-- Footer identique à celui des autres pages -->
     <div id="footer-container"></div>
-    <script src="../scripts/footer.js"></script>
+    <script src="footer.js"></script>
     
 </body>
 </html>

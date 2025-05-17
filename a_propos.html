@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
   <!-- Définition du charset et du viewport -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,10 +64,11 @@
   <main>
     
     <!--En-tête-->
- <!-- Conteneur où le header sera injecté -->
-        <div id="header-container"></div>
-        <!-- Inclusion du script qui va injecter le header -->
-        <script src="../scripts/header.js"></script>
+   <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.body.insertAdjacentHTML('afterbegin', data));
+  </script>
     
     <!-- Section À Propos -->
     <section id="a-propos">
@@ -78,7 +78,7 @@
       <!-- Conteneur de la photo et du texte -->
       <div class="a-propos-content">
         <!-- Photo illustrant les buts et valeurs de l'ASBL -->
-        <img src="../images/buts_asbl.jpg" alt="Photo présentant les buts et valeurs de l'ASBL">
+        <img src="buts_asbl.jpg" alt="Photo présentant les buts et valeurs de l'ASBL">
         
         <!-- Bloc de texte explicatif -->
         <div class="a-propos-text">
@@ -104,10 +104,9 @@
       </div>
     </section>
     
-   <!-- 🔹 Footer élégant -->
-<!-- Footer identique à celui des autres pages -->
+    <!-- Footer identique à celui des autres pages -->
     <div id="footer-container"></div>
-    <script src="../scripts/footer.js"></script>
+    <script src="footer.js"></script>
   </main>
   
   <!-- Script pour refermer le menu après clic (inutile sur cette page si le menu reste identique, mais inclus pour la cohérence) -->
